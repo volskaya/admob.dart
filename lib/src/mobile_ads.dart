@@ -71,8 +71,15 @@ class MobileAds {
     assertPlatformIsSupported();
     assert(!isInitialized);
 
-    this.nativeAd = nativeAd;
-    _debugCheckIsTestId(nativeAd.unitId, [nativeAdTestUnitId, nativeAdVideoTestUnitId]);
+    bool isDebugging = false;
+    assert((() {
+      isDebugging = true;
+      return true;
+    })());
+
+    // Setup unit IDs. Use test IDs, while in debug mode.
+    this.nativeAd = !isDebugging ? nativeAd : nativeAd.copyWith.call(unitId: MobileAds.nativeAdTestUnitId);
+    _debugCheckIsTestId(this.nativeAd.unitId, [nativeAdTestUnitId, nativeAdVideoTestUnitId]);
 
     // Setup old ad ids.
     bannerAdUnitId ??= bannerAdUnitId ?? bannerAdTestUnitId;
@@ -85,21 +92,15 @@ class MobileAds {
     _debugCheckIsTestId(appOpenAdUnitId, [appOpenAdTestUnitId]);
 
     final platformProps = PlatformProps(
-      nativeAd: nativeAd,
+      nativeAd: this.nativeAd,
     );
-
-    bool forceTesting = false;
-    assert((() {
-      forceTesting = true;
-      return true;
-    })());
 
     // Make sure the version is supported.
     _version = await pluginChannel.invokeMethod<int>('initialize', <String, dynamic>{
       'debugDeviceIds': debugDeviceIds,
       'props': platformProps.toJson(),
       'underAgeOfConsent': underAgeOfConsent,
-      'forceTesting': forceTesting,
+      'forceTesting': isDebugging,
     });
 
     assertVersionIsSupported(false);
@@ -113,6 +114,7 @@ class MobileAds {
     assert(id != null);
     assert(testIds != null);
     assert(kReleaseMode || testIds.isNotEmpty);
+    assert(testIds.contains(id));
   }
 
   /// Returns `true` if this device will receive test ads.
