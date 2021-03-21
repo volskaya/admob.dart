@@ -36,6 +36,7 @@ dev_dependencies:
   json_serializable:
 
 dependency_overrides:
+  intl: ^0.17.0
   freezed_annotation:
     path: /home/projects/forks/freezed/packages/freezed_annotation
   freezed:

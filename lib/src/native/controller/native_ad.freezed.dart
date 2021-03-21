@@ -637,8 +637,7 @@ class _$AdChoicesInfoTearOff {
 
 // ignore: unused_element
   _AdChoicesInfo call(
-      {@required
-          String text,
+      {String text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images = const <NativeAdImage>[]}) {
     return _AdChoicesInfo(
@@ -740,12 +739,10 @@ class __$AdChoicesInfoCopyWithImpl<$Res>
 /// @nodoc
 class _$_AdChoicesInfo implements _AdChoicesInfo {
   _$_AdChoicesInfo(
-      {@required
-          this.text,
+      {this.text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           this.images = const <NativeAdImage>[]})
-      : assert(text != null),
-        assert(images != null);
+      : assert(images != null);
 
   factory _$_AdChoicesInfo.fromJson(Map<String, dynamic> json) =>
       _$_$_AdChoicesInfoFromJson(json);
@@ -801,8 +798,7 @@ class _$_AdChoicesInfo implements _AdChoicesInfo {
 
 abstract class _AdChoicesInfo implements AdChoicesInfo {
   factory _AdChoicesInfo(
-      {@required
-          String text,
+      {String text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images}) = _$_AdChoicesInfo;
 

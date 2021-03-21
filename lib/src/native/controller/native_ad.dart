@@ -47,7 +47,7 @@ abstract class NativeAdMediaContent with _$NativeAdMediaContent {
 @freezed
 abstract class AdChoicesInfo with _$AdChoicesInfo {
   factory AdChoicesInfo({
-    @required String text,
+    String text,
     @JsonKey(defaultValue: <NativeAdImage>[]) @Default(<NativeAdImage>[]) List<NativeAdImage> images,
   }) = _AdChoicesInfo;
 

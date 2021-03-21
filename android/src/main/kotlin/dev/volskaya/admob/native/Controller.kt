@@ -244,8 +244,8 @@ fun NativeAd.toFlutterMap(): Map<*, *> {
 //                    "mainImage" to this.mediaContent.mainImage?.toBitmapByteArray(),
             ),
             "adChoicesInfo" to hashMapOf(
-                    "text" to this.adChoicesInfo.text?.toString(),
-                    "images" to this.adChoicesInfo.images.map { image -> image.toFlutterMap() }
+                    "text" to this.adChoicesInfo?.text?.toString(),
+                    "images" to this.adChoicesInfo?.images?.map { image -> image.toFlutterMap() }
             )
     )
 }
