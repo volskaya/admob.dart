@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'platform_props.dart';
 
@@ -8,6 +8,10 @@ part of 'platform_props.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 NativeAdPlatformProps _$NativeAdPlatformPropsFromJson(
     Map<String, dynamic> json) {
   return _NativeAdPlatformProps.fromJson(json);
@@ -17,33 +21,32 @@ NativeAdPlatformProps _$NativeAdPlatformPropsFromJson(
 class _$NativeAdPlatformPropsTearOff {
   const _$NativeAdPlatformPropsTearOff();
 
-// ignore: unused_element
   _NativeAdPlatformProps call(
-      {@required String unitId,
-      @required Map<String, NativeAdOptions> options}) {
+      {required String unitId, required Map<String, NativeAdOptions> options}) {
     return _NativeAdPlatformProps(
       unitId: unitId,
       options: options,
     );
   }
 
-// ignore: unused_element
   NativeAdPlatformProps fromJson(Map<String, Object> json) {
     return NativeAdPlatformProps.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdPlatformProps = _$NativeAdPlatformPropsTearOff();
 
 /// @nodoc
 mixin _$NativeAdPlatformProps {
-  String get unitId;
-  Map<String, NativeAdOptions> get options;
+  String get unitId => throw _privateConstructorUsedError;
+  Map<String, NativeAdOptions> get options =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NativeAdPlatformPropsCopyWith<NativeAdPlatformProps> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdPlatformPropsCopyWith<NativeAdPlatformProps> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,14 +68,18 @@ class _$NativeAdPlatformPropsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object unitId = freezed,
-    Object options = freezed,
+    Object? unitId = freezed,
+    Object? options = freezed,
   }) {
     return _then(_value.copyWith(
-      unitId: unitId == freezed ? _value.unitId : unitId as String,
+      unitId: unitId == freezed
+          ? _value.unitId
+          : unitId // ignore: cast_nullable_to_non_nullable
+              as String,
       options: options == freezed
           ? _value.options
-          : options as Map<String, NativeAdOptions>,
+          : options // ignore: cast_nullable_to_non_nullable
+              as Map<String, NativeAdOptions>,
     ));
   }
 }
@@ -100,14 +107,18 @@ class __$NativeAdPlatformPropsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object unitId = freezed,
-    Object options = freezed,
+    Object? unitId = freezed,
+    Object? options = freezed,
   }) {
     return _then(_NativeAdPlatformProps(
-      unitId: unitId == freezed ? _value.unitId : unitId as String,
+      unitId: unitId == freezed
+          ? _value.unitId
+          : unitId // ignore: cast_nullable_to_non_nullable
+              as String,
       options: options == freezed
           ? _value.options
-          : options as Map<String, NativeAdOptions>,
+          : options // ignore: cast_nullable_to_non_nullable
+              as Map<String, NativeAdOptions>,
     ));
   }
 }
@@ -116,10 +127,7 @@ class __$NativeAdPlatformPropsCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_NativeAdPlatformProps implements _NativeAdPlatformProps {
-  const _$_NativeAdPlatformProps(
-      {@required this.unitId, @required this.options})
-      : assert(unitId != null),
-        assert(options != null);
+  const _$_NativeAdPlatformProps({required this.unitId, required this.options});
 
   factory _$_NativeAdPlatformProps.fromJson(Map<String, dynamic> json) =>
       _$_$_NativeAdPlatformPropsFromJson(json);
@@ -150,6 +158,7 @@ class _$_NativeAdPlatformProps implements _NativeAdPlatformProps {
       const DeepCollectionEquality().hash(unitId) ^
       const DeepCollectionEquality().hash(options);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdPlatformPropsCopyWith<_NativeAdPlatformProps> get copyWith =>
       __$NativeAdPlatformPropsCopyWithImpl<_NativeAdPlatformProps>(
@@ -163,19 +172,22 @@ class _$_NativeAdPlatformProps implements _NativeAdPlatformProps {
 
 abstract class _NativeAdPlatformProps implements NativeAdPlatformProps {
   const factory _NativeAdPlatformProps(
-          {@required String unitId,
-          @required Map<String, NativeAdOptions> options}) =
+          {required String unitId,
+          required Map<String, NativeAdOptions> options}) =
       _$_NativeAdPlatformProps;
 
   factory _NativeAdPlatformProps.fromJson(Map<String, dynamic> json) =
       _$_NativeAdPlatformProps.fromJson;
 
   @override
-  String get unitId;
+  String get unitId => throw _privateConstructorUsedError;
   @override
-  Map<String, NativeAdOptions> get options;
+  Map<String, NativeAdOptions> get options =>
+      throw _privateConstructorUsedError;
   @override
-  _$NativeAdPlatformPropsCopyWith<_NativeAdPlatformProps> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdPlatformPropsCopyWith<_NativeAdPlatformProps> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 PlatformProps _$PlatformPropsFromJson(Map<String, dynamic> json) {
@@ -186,29 +198,28 @@ PlatformProps _$PlatformPropsFromJson(Map<String, dynamic> json) {
 class _$PlatformPropsTearOff {
   const _$PlatformPropsTearOff();
 
-// ignore: unused_element
-  _PlatformProps call({@required NativeAdPlatformProps nativeAd}) {
+  _PlatformProps call({required NativeAdPlatformProps nativeAd}) {
     return _PlatformProps(
       nativeAd: nativeAd,
     );
   }
 
-// ignore: unused_element
   PlatformProps fromJson(Map<String, Object> json) {
     return PlatformProps.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PlatformProps = _$PlatformPropsTearOff();
 
 /// @nodoc
 mixin _$PlatformProps {
-  NativeAdPlatformProps get nativeAd;
+  NativeAdPlatformProps get nativeAd => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $PlatformPropsCopyWith<PlatformProps> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlatformPropsCopyWith<PlatformProps> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -232,20 +243,18 @@ class _$PlatformPropsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object nativeAd = freezed,
+    Object? nativeAd = freezed,
   }) {
     return _then(_value.copyWith(
       nativeAd: nativeAd == freezed
           ? _value.nativeAd
-          : nativeAd as NativeAdPlatformProps,
+          : nativeAd // ignore: cast_nullable_to_non_nullable
+              as NativeAdPlatformProps,
     ));
   }
 
   @override
   $NativeAdPlatformPropsCopyWith<$Res> get nativeAd {
-    if (_value.nativeAd == null) {
-      return null;
-    }
     return $NativeAdPlatformPropsCopyWith<$Res>(_value.nativeAd, (value) {
       return _then(_value.copyWith(nativeAd: value));
     });
@@ -278,12 +287,13 @@ class __$PlatformPropsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object nativeAd = freezed,
+    Object? nativeAd = freezed,
   }) {
     return _then(_PlatformProps(
       nativeAd: nativeAd == freezed
           ? _value.nativeAd
-          : nativeAd as NativeAdPlatformProps,
+          : nativeAd // ignore: cast_nullable_to_non_nullable
+              as NativeAdPlatformProps,
     ));
   }
 }
@@ -292,7 +302,7 @@ class __$PlatformPropsCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_PlatformProps implements _PlatformProps {
-  const _$_PlatformProps({@required this.nativeAd}) : assert(nativeAd != null);
+  const _$_PlatformProps({required this.nativeAd});
 
   factory _$_PlatformProps.fromJson(Map<String, dynamic> json) =>
       _$_$_PlatformPropsFromJson(json);
@@ -318,6 +328,7 @@ class _$_PlatformProps implements _PlatformProps {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(nativeAd);
 
+  @JsonKey(ignore: true)
   @override
   _$PlatformPropsCopyWith<_PlatformProps> get copyWith =>
       __$PlatformPropsCopyWithImpl<_PlatformProps>(this, _$identity);
@@ -329,14 +340,16 @@ class _$_PlatformProps implements _PlatformProps {
 }
 
 abstract class _PlatformProps implements PlatformProps {
-  const factory _PlatformProps({@required NativeAdPlatformProps nativeAd}) =
+  const factory _PlatformProps({required NativeAdPlatformProps nativeAd}) =
       _$_PlatformProps;
 
   factory _PlatformProps.fromJson(Map<String, dynamic> json) =
       _$_PlatformProps.fromJson;
 
   @override
-  NativeAdPlatformProps get nativeAd;
+  NativeAdPlatformProps get nativeAd => throw _privateConstructorUsedError;
   @override
-  _$PlatformPropsCopyWith<_PlatformProps> get copyWith;
+  @JsonKey(ignore: true)
+  _$PlatformPropsCopyWith<_PlatformProps> get copyWith =>
+      throw _privateConstructorUsedError;
 }

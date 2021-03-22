@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:admob/src/consent/consent_coordinator.dart';
+import 'package:admob/src/native/controller/options.dart';
 import 'package:admob/src/platform_props.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -39,19 +40,13 @@ class MobileAds {
   static String get appOpenAdTestUnitId =>
       Platform.isAndroid ? 'ca-app-pub-3940256099942544/3419835294' : 'ca-app-pub-3940256099942544/5662855259';
 
-  // Unit ids.
-  String bannerAdUnitId;
-  String interstitialAdUnitId;
-  String rewardedAdUnitId;
-  String appOpenAdUnitId;
-
   bool useHybridComposition = false;
   bool _initialized = false;
   bool get isInitialized => _initialized;
   int _version = 0;
   int get osVersion => _version;
 
-  NativeAdPlatformProps nativeAd;
+  late final NativeAdPlatformProps nativeAd;
 
   /// Before creating any native ads, you must initalize the admob.
   /// This can be done only once, ideally at app launch. If you try to
@@ -64,8 +59,8 @@ class MobileAds {
   /// }
   /// ```
   Future<void> initialize({
-    NativeAdPlatformProps nativeAd,
-    List<String> debugDeviceIds,
+    NativeAdPlatformProps? nativeAd,
+    List<String>? debugDeviceIds,
     bool underAgeOfConsent = false,
   }) async {
     assertPlatformIsSupported();
@@ -78,18 +73,16 @@ class MobileAds {
     })());
 
     // Setup unit IDs. Use test IDs, while in debug mode.
-    this.nativeAd = !isDebugging ? nativeAd : nativeAd.copyWith.call(unitId: MobileAds.nativeAdTestUnitId);
-    _debugCheckIsTestId(this.nativeAd.unitId, [nativeAdTestUnitId, nativeAdVideoTestUnitId]);
+    this.nativeAd = nativeAd != null
+        ? !isDebugging
+            ? nativeAd
+            : nativeAd.copyWith.call(unitId: MobileAds.nativeAdTestUnitId)
+        : NativeAdPlatformProps(
+            unitId: MobileAds.nativeAdTestUnitId,
+            options: const <String, NativeAdOptions>{NativeAdOptions.defaultKey: NativeAdOptions()},
+          );
 
-    // Setup old ad ids.
-    bannerAdUnitId ??= bannerAdUnitId ?? bannerAdTestUnitId;
-    _debugCheckIsTestId(bannerAdUnitId, [bannerAdTestUnitId]);
-    interstitialAdUnitId ??= interstitialAdUnitId ?? interstitialAdTestUnitId;
-    _debugCheckIsTestId(interstitialAdUnitId, [interstitialAdTestUnitId, interstitialAdVideoTestUnitId]);
-    rewardedAdUnitId ??= rewardedAdUnitId ?? rewardedAdTestUnitId;
-    _debugCheckIsTestId(rewardedAdUnitId, [rewardedAdTestUnitId]);
-    appOpenAdUnitId ??= appOpenAdUnitId ?? appOpenAdTestUnitId;
-    _debugCheckIsTestId(appOpenAdUnitId, [appOpenAdTestUnitId]);
+    _debugCheckIsTestId(this.nativeAd.unitId, [nativeAdTestUnitId, nativeAdVideoTestUnitId]);
 
     final platformProps = PlatformProps(
       nativeAd: this.nativeAd,
@@ -97,11 +90,12 @@ class MobileAds {
 
     // Make sure the version is supported.
     _version = await pluginChannel.invokeMethod<int>('initialize', <String, dynamic>{
-      'debugDeviceIds': debugDeviceIds,
-      'props': platformProps.toJson(),
-      'underAgeOfConsent': underAgeOfConsent,
-      'forceTesting': isDebugging,
-    });
+          'debugDeviceIds': debugDeviceIds,
+          'props': platformProps.toJson(),
+          'underAgeOfConsent': underAgeOfConsent,
+          'forceTesting': isDebugging,
+        }) ??
+        0;
 
     assertVersionIsSupported(false);
     _initialized = true;
@@ -111,14 +105,12 @@ class MobileAds {
   ///
   /// [kReleaseMode] and [kDebugMode] are considered as test mode.
   static void _debugCheckIsTestId(String id, List<String> testIds) {
-    assert(id != null);
-    assert(testIds != null);
     assert(kReleaseMode || testIds.isNotEmpty);
     assert(testIds.contains(id));
   }
 
   /// Returns `true` if this device will receive test ads.
-  Future<bool> isTestDevice() => pluginChannel.invokeMethod<bool>('isTestDevice');
+  Future<bool> isTestDevice() async => await pluginChannel.invokeMethod<bool>('isTestDevice') ?? false;
 
   /// For purposes of the Children's Online Privacy Protection Act (COPPA),
   /// there is a setting called "tag for child-directed treatment". By setting this tag,
@@ -179,12 +171,11 @@ class MobileAds {
   ///
   /// [Learn more](https://support.google.com/admob/answer/7562142)
   Future<void> setMaxAdContentRating(int maxRating) async {
-    assert(maxRating != null, 'Max rating must not be null');
     assert(
       const [RATING_G, RATING_PG, RATING_T, RATING_MA].contains(maxRating),
       'The provided int is not avaiable. Avaiable values: $RATING_G, $RATING_PG, $RATING_T, $RATING_MA',
     );
-    await pluginChannel.invokeMethod('setMaxAdContentRating', {'maxRating': maxRating ?? 0});
+    await pluginChannel.invokeMethod('setMaxAdContentRating', {'maxRating': maxRating});
   }
 
   /// If your app has its own volume controls (such as custom music or sound effect volumes),
@@ -204,9 +195,8 @@ class MobileAds {
   /// MobileAds.setAppVolume(0.5);
   /// ```
   Future<void> setAppVolume(double volume) {
-    assert(volume != null, 'The volume can NOT be null');
     assert(volume >= 0 && volume <= 1, 'The volume must be in bettwen of 0 and 1');
-    return pluginChannel.invokeMethod('setAppVolume', {'volume': volume ?? 1});
+    return pluginChannel.invokeMethod('setAppVolume', {'volume': volume});
   }
 
   /// To inform the SDK that the app volume has been muted, use the `setAppMuted()` method:
@@ -214,6 +204,6 @@ class MobileAds {
   /// Unmuting the app volume reverts it to the previously set level. By default, the app
   /// volume for the Google Mobile Ads SDK is set to 1 (the current device volume).
   Future<void> setAppMuted([bool muted = true]) {
-    return pluginChannel.invokeMethod('setAppMuted', {'muted': muted ?? true});
+    return pluginChannel.invokeMethod('setAppMuted', {'muted': muted});
   }
 }

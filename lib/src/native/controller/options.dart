@@ -38,7 +38,7 @@ enum AdMediaAspectRatio {
 }
 
 @freezed
-abstract class VideoOptions with _$VideoOptions {
+class VideoOptions with _$VideoOptions {
   const factory VideoOptions({
     @Default(true) bool startMuted,
   }) = _VideoOptions;
@@ -47,7 +47,7 @@ abstract class VideoOptions with _$VideoOptions {
 }
 
 @freezed
-abstract class NativeAdOptions with _$NativeAdOptions {
+class NativeAdOptions with _$NativeAdOptions {
   const factory NativeAdOptions({
     @Default(NativeAdOptions.defaultKey) String key,
     @Default(true) bool showVideoContent, // This is not an admob specific field.
@@ -56,7 +56,7 @@ abstract class NativeAdOptions with _$NativeAdOptions {
     @Default(true) bool returnUrlsForImageAssets, // No point of preparing the native drawables.
     @Default(AdChoicesPlacement.topRight) AdChoicesPlacement adChoicesPlacement,
     @Default(AdMediaAspectRatio.landscape) AdMediaAspectRatio mediaAspectRatio,
-    VideoOptions videoOptions,
+    VideoOptions? videoOptions,
   }) = _NativeAdOptions;
 
   factory NativeAdOptions.fromJson(Map<String, dynamic> json) => _$NativeAdOptionsFromJson(json);

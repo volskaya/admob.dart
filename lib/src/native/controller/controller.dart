@@ -25,7 +25,7 @@ enum NativeAdVideoPlaybackState { playing, paused }
 enum NativeAdVideoLifecycle { idle, started, ended }
 
 @freezed
-abstract class NativeAdVideoState with _$NativeAdVideoState {
+class NativeAdVideoState with _$NativeAdVideoState {
   const factory NativeAdVideoState({
     @Default(NativeAdVideoPlaybackState.paused) NativeAdVideoPlaybackState playback,
     @Default(NativeAdVideoLifecycle.idle) NativeAdVideoLifecycle lifecycle,
@@ -58,18 +58,18 @@ class NativeAdController extends _NativeAdController with _$NativeAdController {
       firstReusable(options: options) ?? NativeAdController(options: options);
 
   /// Allow reusing never show controllers.
-  static NativeAdController firstReusable({
+  static NativeAdController? firstReusable({
     String options = NativeAdOptions.defaultKey,
-    NativeAdController Function() orElse,
-    bool Function(NativeAdController) where,
+    NativeAdController Function()? orElse,
+    bool Function(NativeAdController)? where,
   }) {
     final queue = _neverUsedControllers[options];
     final throwAways = Queue<NativeAdController>();
 
-    NativeAdController value;
+    NativeAdController? value;
 
     while (queue?.isNotEmpty == true) {
-      final controller = queue.removeFirst();
+      final controller = queue!.removeFirst();
 
       if (controller.considerThisOld()) {
         // Dispose old controllers.
@@ -84,7 +84,7 @@ class NativeAdController extends _NativeAdController with _$NativeAdController {
     }
 
     if (throwAways.isNotEmpty) {
-      _neverUsedControllers[options] = throwAways..addAll(queue);
+      _neverUsedControllers[options] = throwAways..addAll(queue!);
     } else if (queue?.isEmpty == true) {
       _neverUsedControllers.remove(options);
     }
@@ -108,10 +108,10 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   final String optionsKey;
 
   /// Options don't exist until [MobileAds.initialize] has been called.
-  NativeAdOptions get options => MobileAds.instance.nativeAd.options[optionsKey];
+  NativeAdOptions? get options => MobileAds.instance.nativeAd.options[optionsKey];
 
-  DateTime loadTime;
-  Memoizer _hydrateMemoizer;
+  DateTime? loadTime;
+  Memoizer? _hydrateMemoizer;
   bool get isLoaded => _hydrateMemoizer?.value != null;
 
   @override
@@ -127,7 +127,7 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   List<String> muteThisAdReasons = const <String>[];
 
   bool considerThisOld() => loadTime != null && nativeAd.maybeMap((_) => true, orElse: () => false)
-      ? DateTime.now().difference(loadTime) > const Duration(hours: 1)
+      ? DateTime.now().difference(loadTime!) > const Duration(hours: 1)
       : false; // Hasn't even been built yet.
 
   /// Handle the messages the channel sends
@@ -162,20 +162,22 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   }
 
   // FIXME: Maybe drop clicks, if the controller hasn't been attached to for more than a second.
-  Future<bool> click() => channel.invokeMethod<bool>('click');
+  Future<bool> click() async => await channel?.invokeMethod<bool>('click') ?? false;
 
   /// Mutes this ad programmatically. Use `null` to mute this ad with the default reason.
-  Future<void> muteThisAd([int reason]) => channel.invokeMethod('mute', {'reason': reason});
+  Future<void> muteThisAd([int? reason]) async => channel?.invokeMethod('mute', {'reason': reason});
 
-  Future unmountView() => channel.invokeMethod('unmountView');
-  Future mountView() async {
+  Future<void> unmountView() async => channel?.invokeMethod('unmountView');
+  Future<void> mountView() async {
     assert(nativeAd.maybeMap((_) => true, orElse: () => false));
-    await channel.invokeMethod('mountView');
+    await channel?.invokeMethod('mountView');
   }
 
-  Future _hydrate() async {
+  Future<void> _hydrate() async {
+    if (channel == null) return;
+
     try {
-      await channel.invokeMethod('hydrate');
+      await channel!.invokeMethod('hydrate');
     } finally {
       loadTime ??= DateTime.now();
     }

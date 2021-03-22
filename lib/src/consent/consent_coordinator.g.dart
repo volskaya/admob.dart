@@ -12,7 +12,7 @@ _$_ConsentCoordinatorState _$_$_ConsentCoordinatorStateFromJson(Map json) {
         ConsentStatus.unknown,
     type: _$enumDecodeNullable(_$ConsentTypeEnumMap, json['type']) ??
         ConsentType.unknown,
-    isContentFormAvailable: json['isContentFormAvailable'] as bool ?? false,
+    isContentFormAvailable: json['isContentFormAvailable'] as bool? ?? false,
   );
 }
 
@@ -24,36 +24,41 @@ Map<String, dynamic> _$_$_ConsentCoordinatorStateToJson(
       'isContentFormAvailable': instance.isContentFormAvailable,
     };
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
+K? _$enumDecodeNullable<K, V>(
+  Map<K, V> enumValues,
   dynamic source, {
-  T unknownValue,
+  K? unknownValue,
 }) {
   if (source == null) {
     return null;
   }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
 const _$ConsentStatusEnumMap = {
@@ -76,21 +81,21 @@ const _$ConsentTypeEnumMap = {
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ConsentCoordinator on _ConsentCoordinator, Store {
-  Computed<ConsentStatus> _$statusComputed;
+  Computed<ConsentStatus>? _$statusComputed;
 
   @override
   ConsentStatus get status =>
       (_$statusComputed ??= Computed<ConsentStatus>(() => super.status,
               name: '_ConsentCoordinator.status'))
           .value;
-  Computed<ConsentType> _$typeComputed;
+  Computed<ConsentType>? _$typeComputed;
 
   @override
   ConsentType get type =>
       (_$typeComputed ??= Computed<ConsentType>(() => super.type,
               name: '_ConsentCoordinator.type'))
           .value;
-  Computed<bool> _$isContentFormAvailableComputed;
+  Computed<bool>? _$isContentFormAvailableComputed;
 
   @override
   bool get isContentFormAvailable => (_$isContentFormAvailableComputed ??=
