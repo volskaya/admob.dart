@@ -8,7 +8,7 @@ part of 'options.dart';
 
 _$_VideoOptions _$_$_VideoOptionsFromJson(Map json) {
   return _$_VideoOptions(
-    startMuted: json['startMuted'] as bool ?? true,
+    startMuted: json['startMuted'] as bool? ?? true,
   );
 }
 
@@ -19,11 +19,11 @@ Map<String, dynamic> _$_$_VideoOptionsToJson(_$_VideoOptions instance) =>
 
 _$_NativeAdOptions _$_$_NativeAdOptionsFromJson(Map json) {
   return _$_NativeAdOptions(
-    key: json['key'] as String ?? 'default',
-    showVideoContent: json['showVideoContent'] as bool ?? true,
-    requestCustomMuteThisAd: json['requestCustomMuteThisAd'] as bool ?? false,
-    requestMultipleImages: json['requestMultipleImages'] as bool ?? false,
-    returnUrlsForImageAssets: json['returnUrlsForImageAssets'] as bool ?? true,
+    key: json['key'] as String? ?? 'default',
+    showVideoContent: json['showVideoContent'] as bool? ?? true,
+    requestCustomMuteThisAd: json['requestCustomMuteThisAd'] as bool? ?? false,
+    requestMultipleImages: json['requestMultipleImages'] as bool? ?? false,
+    returnUrlsForImageAssets: json['returnUrlsForImageAssets'] as bool? ?? true,
     adChoicesPlacement: _$enumDecodeNullable(
             _$AdChoicesPlacementEnumMap, json['adChoicesPlacement']) ??
         AdChoicesPlacement.topRight,
@@ -32,9 +32,8 @@ _$_NativeAdOptions _$_$_NativeAdOptionsFromJson(Map json) {
         AdMediaAspectRatio.landscape,
     videoOptions: json['videoOptions'] == null
         ? null
-        : VideoOptions.fromJson((json['videoOptions'] as Map)?.map(
-            (k, e) => MapEntry(k as String, e),
-          )),
+        : VideoOptions.fromJson(
+            Map<String, dynamic>.from(json['videoOptions'] as Map)),
   );
 }
 
@@ -52,36 +51,41 @@ Map<String, dynamic> _$_$_NativeAdOptionsToJson(_$_NativeAdOptions instance) =>
       'videoOptions': instance.videoOptions?.toJson(),
     };
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
+K? _$enumDecodeNullable<K, V>(
+  Map<K, V> enumValues,
   dynamic source, {
-  T unknownValue,
+  K? unknownValue,
 }) {
   if (source == null) {
     return null;
   }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
 const _$AdChoicesPlacementEnumMap = {

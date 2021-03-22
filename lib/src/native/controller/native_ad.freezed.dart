@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'native_ad.dart';
 
@@ -8,6 +8,10 @@ part of 'native_ad.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 NativeAdImageDrawable _$NativeAdImageDrawableFromJson(
     Map<String, dynamic> json) {
   return _NativeAdImageDrawable.fromJson(json);
@@ -17,11 +21,10 @@ NativeAdImageDrawable _$NativeAdImageDrawableFromJson(
 class _$NativeAdImageDrawableTearOff {
   const _$NativeAdImageDrawableTearOff();
 
-// ignore: unused_element
   _NativeAdImageDrawable call(
-      {@required double width,
-      @required double height,
-      @required @Uint8ListConverter() Uint8List bitmap}) {
+      {required double width,
+      required double height,
+      @Uint8ListConverter() required Uint8List bitmap}) {
     return _NativeAdImageDrawable(
       width: width,
       height: height,
@@ -29,25 +32,25 @@ class _$NativeAdImageDrawableTearOff {
     );
   }
 
-// ignore: unused_element
   NativeAdImageDrawable fromJson(Map<String, Object> json) {
     return NativeAdImageDrawable.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdImageDrawable = _$NativeAdImageDrawableTearOff();
 
 /// @nodoc
 mixin _$NativeAdImageDrawable {
-  double get width;
-  double get height;
+  double get width => throw _privateConstructorUsedError;
+  double get height => throw _privateConstructorUsedError;
   @Uint8ListConverter()
-  Uint8List get bitmap;
+  Uint8List get bitmap => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NativeAdImageDrawableCopyWith<NativeAdImageDrawable> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdImageDrawableCopyWith<NativeAdImageDrawable> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -70,14 +73,23 @@ class _$NativeAdImageDrawableCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object width = freezed,
-    Object height = freezed,
-    Object bitmap = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? bitmap = freezed,
   }) {
     return _then(_value.copyWith(
-      width: width == freezed ? _value.width : width as double,
-      height: height == freezed ? _value.height : height as double,
-      bitmap: bitmap == freezed ? _value.bitmap : bitmap as Uint8List,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+      bitmap: bitmap == freezed
+          ? _value.bitmap
+          : bitmap // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
     ));
   }
 }
@@ -106,14 +118,23 @@ class __$NativeAdImageDrawableCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object width = freezed,
-    Object height = freezed,
-    Object bitmap = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? bitmap = freezed,
   }) {
     return _then(_NativeAdImageDrawable(
-      width: width == freezed ? _value.width : width as double,
-      height: height == freezed ? _value.height : height as double,
-      bitmap: bitmap == freezed ? _value.bitmap : bitmap as Uint8List,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+      bitmap: bitmap == freezed
+          ? _value.bitmap
+          : bitmap // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
     ));
   }
 }
@@ -121,14 +142,12 @@ class __$NativeAdImageDrawableCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_NativeAdImageDrawable implements _NativeAdImageDrawable {
+class _$_NativeAdImageDrawable extends _NativeAdImageDrawable {
   _$_NativeAdImageDrawable(
-      {@required this.width,
-      @required this.height,
-      @required @Uint8ListConverter() this.bitmap})
-      : assert(width != null),
-        assert(height != null),
-        assert(bitmap != null);
+      {required this.width,
+      required this.height,
+      @Uint8ListConverter() required this.bitmap})
+      : super._();
 
   factory _$_NativeAdImageDrawable.fromJson(Map<String, dynamic> json) =>
       _$_$_NativeAdImageDrawableFromJson(json);
@@ -141,21 +160,9 @@ class _$_NativeAdImageDrawable implements _NativeAdImageDrawable {
   @Uint8ListConverter()
   final Uint8List bitmap;
 
-  bool _didsize = false;
-  Size _size;
-
-  @override
-  Size get size {
-    if (_didsize == false) {
-      _didsize = true;
-      _size = Size(width, height);
-    }
-    return _size;
-  }
-
   @override
   String toString() {
-    return 'NativeAdImageDrawable(width: $width, height: $height, bitmap: $bitmap, size: $size)';
+    return 'NativeAdImageDrawable(width: $width, height: $height, bitmap: $bitmap)';
   }
 
   @override
@@ -177,6 +184,7 @@ class _$_NativeAdImageDrawable implements _NativeAdImageDrawable {
       const DeepCollectionEquality().hash(height) ^
       const DeepCollectionEquality().hash(bitmap);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdImageDrawableCopyWith<_NativeAdImageDrawable> get copyWith =>
       __$NativeAdImageDrawableCopyWithImpl<_NativeAdImageDrawable>(
@@ -188,25 +196,28 @@ class _$_NativeAdImageDrawable implements _NativeAdImageDrawable {
   }
 }
 
-abstract class _NativeAdImageDrawable implements NativeAdImageDrawable {
+abstract class _NativeAdImageDrawable extends NativeAdImageDrawable {
   factory _NativeAdImageDrawable(
-          {@required double width,
-          @required double height,
-          @required @Uint8ListConverter() Uint8List bitmap}) =
+          {required double width,
+          required double height,
+          @Uint8ListConverter() required Uint8List bitmap}) =
       _$_NativeAdImageDrawable;
+  _NativeAdImageDrawable._() : super._();
 
   factory _NativeAdImageDrawable.fromJson(Map<String, dynamic> json) =
       _$_NativeAdImageDrawable.fromJson;
 
   @override
-  double get width;
+  double get width => throw _privateConstructorUsedError;
   @override
-  double get height;
+  double get height => throw _privateConstructorUsedError;
   @override
   @Uint8ListConverter()
-  Uint8List get bitmap;
+  Uint8List get bitmap => throw _privateConstructorUsedError;
   @override
-  _$NativeAdImageDrawableCopyWith<_NativeAdImageDrawable> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdImageDrawableCopyWith<_NativeAdImageDrawable> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NativeAdImage _$NativeAdImageFromJson(Map<String, dynamic> json) {
@@ -217,11 +228,10 @@ NativeAdImage _$NativeAdImageFromJson(Map<String, dynamic> json) {
 class _$NativeAdImageTearOff {
   const _$NativeAdImageTearOff();
 
-// ignore: unused_element
   _NativeAdImage call(
-      {@required String uri,
-      @required double scale,
-      NativeAdImageDrawable drawable}) {
+      {required String uri,
+      required double scale,
+      NativeAdImageDrawable? drawable}) {
     return _NativeAdImage(
       uri: uri,
       scale: scale,
@@ -229,24 +239,24 @@ class _$NativeAdImageTearOff {
     );
   }
 
-// ignore: unused_element
   NativeAdImage fromJson(Map<String, Object> json) {
     return NativeAdImage.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdImage = _$NativeAdImageTearOff();
 
 /// @nodoc
 mixin _$NativeAdImage {
-  String get uri;
-  double get scale;
-  NativeAdImageDrawable get drawable;
+  String get uri => throw _privateConstructorUsedError;
+  double get scale => throw _privateConstructorUsedError;
+  NativeAdImageDrawable? get drawable => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NativeAdImageCopyWith<NativeAdImage> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdImageCopyWith<NativeAdImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -254,9 +264,9 @@ abstract class $NativeAdImageCopyWith<$Res> {
   factory $NativeAdImageCopyWith(
           NativeAdImage value, $Res Function(NativeAdImage) then) =
       _$NativeAdImageCopyWithImpl<$Res>;
-  $Res call({String uri, double scale, NativeAdImageDrawable drawable});
+  $Res call({String uri, double scale, NativeAdImageDrawable? drawable});
 
-  $NativeAdImageDrawableCopyWith<$Res> get drawable;
+  $NativeAdImageDrawableCopyWith<$Res>? get drawable;
 }
 
 /// @nodoc
@@ -270,25 +280,33 @@ class _$NativeAdImageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object uri = freezed,
-    Object scale = freezed,
-    Object drawable = freezed,
+    Object? uri = freezed,
+    Object? scale = freezed,
+    Object? drawable = freezed,
   }) {
     return _then(_value.copyWith(
-      uri: uri == freezed ? _value.uri : uri as String,
-      scale: scale == freezed ? _value.scale : scale as double,
+      uri: uri == freezed
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+      scale: scale == freezed
+          ? _value.scale
+          : scale // ignore: cast_nullable_to_non_nullable
+              as double,
       drawable: drawable == freezed
           ? _value.drawable
-          : drawable as NativeAdImageDrawable,
+          : drawable // ignore: cast_nullable_to_non_nullable
+              as NativeAdImageDrawable?,
     ));
   }
 
   @override
-  $NativeAdImageDrawableCopyWith<$Res> get drawable {
+  $NativeAdImageDrawableCopyWith<$Res>? get drawable {
     if (_value.drawable == null) {
       return null;
     }
-    return $NativeAdImageDrawableCopyWith<$Res>(_value.drawable, (value) {
+
+    return $NativeAdImageDrawableCopyWith<$Res>(_value.drawable!, (value) {
       return _then(_value.copyWith(drawable: value));
     });
   }
@@ -301,10 +319,10 @@ abstract class _$NativeAdImageCopyWith<$Res>
           _NativeAdImage value, $Res Function(_NativeAdImage) then) =
       __$NativeAdImageCopyWithImpl<$Res>;
   @override
-  $Res call({String uri, double scale, NativeAdImageDrawable drawable});
+  $Res call({String uri, double scale, NativeAdImageDrawable? drawable});
 
   @override
-  $NativeAdImageDrawableCopyWith<$Res> get drawable;
+  $NativeAdImageDrawableCopyWith<$Res>? get drawable;
 }
 
 /// @nodoc
@@ -320,16 +338,23 @@ class __$NativeAdImageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object uri = freezed,
-    Object scale = freezed,
-    Object drawable = freezed,
+    Object? uri = freezed,
+    Object? scale = freezed,
+    Object? drawable = freezed,
   }) {
     return _then(_NativeAdImage(
-      uri: uri == freezed ? _value.uri : uri as String,
-      scale: scale == freezed ? _value.scale : scale as double,
+      uri: uri == freezed
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+      scale: scale == freezed
+          ? _value.scale
+          : scale // ignore: cast_nullable_to_non_nullable
+              as double,
       drawable: drawable == freezed
           ? _value.drawable
-          : drawable as NativeAdImageDrawable,
+          : drawable // ignore: cast_nullable_to_non_nullable
+              as NativeAdImageDrawable?,
     ));
   }
 }
@@ -338,9 +363,7 @@ class __$NativeAdImageCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_NativeAdImage implements _NativeAdImage {
-  _$_NativeAdImage({@required this.uri, @required this.scale, this.drawable})
-      : assert(uri != null),
-        assert(scale != null);
+  _$_NativeAdImage({required this.uri, required this.scale, this.drawable});
 
   factory _$_NativeAdImage.fromJson(Map<String, dynamic> json) =>
       _$_$_NativeAdImageFromJson(json);
@@ -350,7 +373,7 @@ class _$_NativeAdImage implements _NativeAdImage {
   @override
   final double scale;
   @override
-  final NativeAdImageDrawable drawable;
+  final NativeAdImageDrawable? drawable;
 
   @override
   String toString() {
@@ -377,6 +400,7 @@ class _$_NativeAdImage implements _NativeAdImage {
       const DeepCollectionEquality().hash(scale) ^
       const DeepCollectionEquality().hash(drawable);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdImageCopyWith<_NativeAdImage> get copyWith =>
       __$NativeAdImageCopyWithImpl<_NativeAdImage>(this, _$identity);
@@ -389,21 +413,23 @@ class _$_NativeAdImage implements _NativeAdImage {
 
 abstract class _NativeAdImage implements NativeAdImage {
   factory _NativeAdImage(
-      {@required String uri,
-      @required double scale,
-      NativeAdImageDrawable drawable}) = _$_NativeAdImage;
+      {required String uri,
+      required double scale,
+      NativeAdImageDrawable? drawable}) = _$_NativeAdImage;
 
   factory _NativeAdImage.fromJson(Map<String, dynamic> json) =
       _$_NativeAdImage.fromJson;
 
   @override
-  String get uri;
+  String get uri => throw _privateConstructorUsedError;
   @override
-  double get scale;
+  double get scale => throw _privateConstructorUsedError;
   @override
-  NativeAdImageDrawable get drawable;
+  NativeAdImageDrawable? get drawable => throw _privateConstructorUsedError;
   @override
-  _$NativeAdImageCopyWith<_NativeAdImage> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdImageCopyWith<_NativeAdImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NativeAdMediaContent _$NativeAdMediaContentFromJson(Map<String, dynamic> json) {
@@ -414,12 +440,11 @@ NativeAdMediaContent _$NativeAdMediaContentFromJson(Map<String, dynamic> json) {
 class _$NativeAdMediaContentTearOff {
   const _$NativeAdMediaContentTearOff();
 
-// ignore: unused_element
   _NativeAdMediaContent call(
-      {@required double aspectRatio,
-      @required bool hasVideoContent,
-      @required double duration,
-      @Uint8ListConverter() Uint8List mainImage}) {
+      {required double aspectRatio,
+      required bool hasVideoContent,
+      required double duration,
+      @Uint8ListConverterNullable() Uint8List? mainImage}) {
     return _NativeAdMediaContent(
       aspectRatio: aspectRatio,
       hasVideoContent: hasVideoContent,
@@ -428,26 +453,26 @@ class _$NativeAdMediaContentTearOff {
     );
   }
 
-// ignore: unused_element
   NativeAdMediaContent fromJson(Map<String, Object> json) {
     return NativeAdMediaContent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdMediaContent = _$NativeAdMediaContentTearOff();
 
 /// @nodoc
 mixin _$NativeAdMediaContent {
-  double get aspectRatio;
-  bool get hasVideoContent;
-  double get duration;
-  @Uint8ListConverter()
-  Uint8List get mainImage;
+  double get aspectRatio => throw _privateConstructorUsedError;
+  bool get hasVideoContent => throw _privateConstructorUsedError;
+  double get duration => throw _privateConstructorUsedError;
+  @Uint8ListConverterNullable()
+  Uint8List? get mainImage => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NativeAdMediaContentCopyWith<NativeAdMediaContent> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdMediaContentCopyWith<NativeAdMediaContent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -459,7 +484,7 @@ abstract class $NativeAdMediaContentCopyWith<$Res> {
       {double aspectRatio,
       bool hasVideoContent,
       double duration,
-      @Uint8ListConverter() Uint8List mainImage});
+      @Uint8ListConverterNullable() Uint8List? mainImage});
 }
 
 /// @nodoc
@@ -473,20 +498,28 @@ class _$NativeAdMediaContentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object aspectRatio = freezed,
-    Object hasVideoContent = freezed,
-    Object duration = freezed,
-    Object mainImage = freezed,
+    Object? aspectRatio = freezed,
+    Object? hasVideoContent = freezed,
+    Object? duration = freezed,
+    Object? mainImage = freezed,
   }) {
     return _then(_value.copyWith(
-      aspectRatio:
-          aspectRatio == freezed ? _value.aspectRatio : aspectRatio as double,
+      aspectRatio: aspectRatio == freezed
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as double,
       hasVideoContent: hasVideoContent == freezed
           ? _value.hasVideoContent
-          : hasVideoContent as bool,
-      duration: duration == freezed ? _value.duration : duration as double,
-      mainImage:
-          mainImage == freezed ? _value.mainImage : mainImage as Uint8List,
+          : hasVideoContent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as double,
+      mainImage: mainImage == freezed
+          ? _value.mainImage
+          : mainImage // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ));
   }
 }
@@ -502,7 +535,7 @@ abstract class _$NativeAdMediaContentCopyWith<$Res>
       {double aspectRatio,
       bool hasVideoContent,
       double duration,
-      @Uint8ListConverter() Uint8List mainImage});
+      @Uint8ListConverterNullable() Uint8List? mainImage});
 }
 
 /// @nodoc
@@ -518,20 +551,28 @@ class __$NativeAdMediaContentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object aspectRatio = freezed,
-    Object hasVideoContent = freezed,
-    Object duration = freezed,
-    Object mainImage = freezed,
+    Object? aspectRatio = freezed,
+    Object? hasVideoContent = freezed,
+    Object? duration = freezed,
+    Object? mainImage = freezed,
   }) {
     return _then(_NativeAdMediaContent(
-      aspectRatio:
-          aspectRatio == freezed ? _value.aspectRatio : aspectRatio as double,
+      aspectRatio: aspectRatio == freezed
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as double,
       hasVideoContent: hasVideoContent == freezed
           ? _value.hasVideoContent
-          : hasVideoContent as bool,
-      duration: duration == freezed ? _value.duration : duration as double,
-      mainImage:
-          mainImage == freezed ? _value.mainImage : mainImage as Uint8List,
+          : hasVideoContent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      duration: duration == freezed
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as double,
+      mainImage: mainImage == freezed
+          ? _value.mainImage
+          : mainImage // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ));
   }
 }
@@ -541,13 +582,10 @@ class __$NativeAdMediaContentCopyWithImpl<$Res>
 /// @nodoc
 class _$_NativeAdMediaContent implements _NativeAdMediaContent {
   const _$_NativeAdMediaContent(
-      {@required this.aspectRatio,
-      @required this.hasVideoContent,
-      @required this.duration,
-      @Uint8ListConverter() this.mainImage})
-      : assert(aspectRatio != null),
-        assert(hasVideoContent != null),
-        assert(duration != null);
+      {required this.aspectRatio,
+      required this.hasVideoContent,
+      required this.duration,
+      @Uint8ListConverterNullable() this.mainImage});
 
   factory _$_NativeAdMediaContent.fromJson(Map<String, dynamic> json) =>
       _$_$_NativeAdMediaContentFromJson(json);
@@ -559,8 +597,8 @@ class _$_NativeAdMediaContent implements _NativeAdMediaContent {
   @override
   final double duration;
   @override
-  @Uint8ListConverter()
-  final Uint8List mainImage;
+  @Uint8ListConverterNullable()
+  final Uint8List? mainImage;
 
   @override
   String toString() {
@@ -593,6 +631,7 @@ class _$_NativeAdMediaContent implements _NativeAdMediaContent {
       const DeepCollectionEquality().hash(duration) ^
       const DeepCollectionEquality().hash(mainImage);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdMediaContentCopyWith<_NativeAdMediaContent> get copyWith =>
       __$NativeAdMediaContentCopyWithImpl<_NativeAdMediaContent>(
@@ -606,25 +645,28 @@ class _$_NativeAdMediaContent implements _NativeAdMediaContent {
 
 abstract class _NativeAdMediaContent implements NativeAdMediaContent {
   const factory _NativeAdMediaContent(
-      {@required double aspectRatio,
-      @required bool hasVideoContent,
-      @required double duration,
-      @Uint8ListConverter() Uint8List mainImage}) = _$_NativeAdMediaContent;
+          {required double aspectRatio,
+          required bool hasVideoContent,
+          required double duration,
+          @Uint8ListConverterNullable() Uint8List? mainImage}) =
+      _$_NativeAdMediaContent;
 
   factory _NativeAdMediaContent.fromJson(Map<String, dynamic> json) =
       _$_NativeAdMediaContent.fromJson;
 
   @override
-  double get aspectRatio;
+  double get aspectRatio => throw _privateConstructorUsedError;
   @override
-  bool get hasVideoContent;
+  bool get hasVideoContent => throw _privateConstructorUsedError;
   @override
-  double get duration;
+  double get duration => throw _privateConstructorUsedError;
   @override
-  @Uint8ListConverter()
-  Uint8List get mainImage;
+  @Uint8ListConverterNullable()
+  Uint8List? get mainImage => throw _privateConstructorUsedError;
   @override
-  _$NativeAdMediaContentCopyWith<_NativeAdMediaContent> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdMediaContentCopyWith<_NativeAdMediaContent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 AdChoicesInfo _$AdChoicesInfoFromJson(Map<String, dynamic> json) {
@@ -635,9 +677,8 @@ AdChoicesInfo _$AdChoicesInfoFromJson(Map<String, dynamic> json) {
 class _$AdChoicesInfoTearOff {
   const _$AdChoicesInfoTearOff();
 
-// ignore: unused_element
   _AdChoicesInfo call(
-      {String text,
+      {String? text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images = const <NativeAdImage>[]}) {
     return _AdChoicesInfo(
@@ -646,24 +687,24 @@ class _$AdChoicesInfoTearOff {
     );
   }
 
-// ignore: unused_element
   AdChoicesInfo fromJson(Map<String, Object> json) {
     return AdChoicesInfo.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AdChoicesInfo = _$AdChoicesInfoTearOff();
 
 /// @nodoc
 mixin _$AdChoicesInfo {
-  String get text;
+  String? get text => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: const <NativeAdImage>[])
-  List<NativeAdImage> get images;
+  List<NativeAdImage> get images => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $AdChoicesInfoCopyWith<AdChoicesInfo> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AdChoicesInfoCopyWith<AdChoicesInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -672,7 +713,7 @@ abstract class $AdChoicesInfoCopyWith<$Res> {
           AdChoicesInfo value, $Res Function(AdChoicesInfo) then) =
       _$AdChoicesInfoCopyWithImpl<$Res>;
   $Res call(
-      {String text,
+      {String? text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images});
 }
@@ -688,12 +729,18 @@ class _$AdChoicesInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object images = freezed,
+    Object? text = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
-      images: images == freezed ? _value.images : images as List<NativeAdImage>,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<NativeAdImage>,
     ));
   }
 }
@@ -706,7 +753,7 @@ abstract class _$AdChoicesInfoCopyWith<$Res>
       __$AdChoicesInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String text,
+      {String? text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images});
 }
@@ -724,12 +771,18 @@ class __$AdChoicesInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object images = freezed,
+    Object? text = freezed,
+    Object? images = freezed,
   }) {
     return _then(_AdChoicesInfo(
-      text: text == freezed ? _value.text : text as String,
-      images: images == freezed ? _value.images : images as List<NativeAdImage>,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<NativeAdImage>,
     ));
   }
 }
@@ -737,37 +790,25 @@ class __$AdChoicesInfoCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_AdChoicesInfo implements _AdChoicesInfo {
+class _$_AdChoicesInfo extends _AdChoicesInfo {
   _$_AdChoicesInfo(
       {this.text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           this.images = const <NativeAdImage>[]})
-      : assert(images != null);
+      : super._();
 
   factory _$_AdChoicesInfo.fromJson(Map<String, dynamic> json) =>
       _$_$_AdChoicesInfoFromJson(json);
 
   @override
-  final String text;
+  final String? text;
   @override
   @JsonKey(defaultValue: const <NativeAdImage>[])
   final List<NativeAdImage> images;
 
-  bool _didimage = false;
-  NativeAdImage _image;
-
-  @override
-  NativeAdImage get image {
-    if (_didimage == false) {
-      _didimage = true;
-      _image = images.isNotEmpty ? images.first : null;
-    }
-    return _image;
-  }
-
   @override
   String toString() {
-    return 'AdChoicesInfo(text: $text, images: $images, image: $image)';
+    return 'AdChoicesInfo(text: $text, images: $images)';
   }
 
   @override
@@ -786,6 +827,7 @@ class _$_AdChoicesInfo implements _AdChoicesInfo {
       const DeepCollectionEquality().hash(text) ^
       const DeepCollectionEquality().hash(images);
 
+  @JsonKey(ignore: true)
   @override
   _$AdChoicesInfoCopyWith<_AdChoicesInfo> get copyWith =>
       __$AdChoicesInfoCopyWithImpl<_AdChoicesInfo>(this, _$identity);
@@ -796,22 +838,25 @@ class _$_AdChoicesInfo implements _AdChoicesInfo {
   }
 }
 
-abstract class _AdChoicesInfo implements AdChoicesInfo {
+abstract class _AdChoicesInfo extends AdChoicesInfo {
   factory _AdChoicesInfo(
-      {String text,
+      {String? text,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images}) = _$_AdChoicesInfo;
+  _AdChoicesInfo._() : super._();
 
   factory _AdChoicesInfo.fromJson(Map<String, dynamic> json) =
       _$_AdChoicesInfo.fromJson;
 
   @override
-  String get text;
+  String? get text => throw _privateConstructorUsedError;
   @override
   @JsonKey(defaultValue: const <NativeAdImage>[])
-  List<NativeAdImage> get images;
+  List<NativeAdImage> get images => throw _privateConstructorUsedError;
   @override
-  _$AdChoicesInfoCopyWith<_AdChoicesInfo> get copyWith;
+  @JsonKey(ignore: true)
+  _$AdChoicesInfoCopyWith<_AdChoicesInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NativeAd _$NativeAdFromJson(Map<String, dynamic> json) {
@@ -832,22 +877,19 @@ NativeAd _$NativeAdFromJson(Map<String, dynamic> json) {
 class _$NativeAdTearOff {
   const _$NativeAdTearOff();
 
-// ignore: unused_element
   NativeAdData call(
-      {@required
-          String headline,
-      @required
-          String body,
-      NativeAdImage icon,
-      String callToAction,
-      String advertiser,
-      String price,
-      String store,
-      double starRating,
-      bool isCustomClickGestureEnabled,
-      bool isCustomMuteThisAdEnabled,
-      AdChoicesInfo adChoicesInfo,
-      NativeAdMediaContent mediaContent,
+      {required String headline,
+      required String body,
+      NativeAdImage? icon,
+      String? callToAction,
+      String? advertiser,
+      String? price,
+      String? store,
+      double? starRating,
+      bool? isCustomClickGestureEnabled,
+      bool? isCustomMuteThisAdEnabled,
+      AdChoicesInfo? adChoicesInfo,
+      NativeAdMediaContent? mediaContent,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images = const <NativeAdImage>[],
       @JsonKey(defaultValue: const <String>[])
@@ -870,89 +912,91 @@ class _$NativeAdTearOff {
     );
   }
 
-// ignore: unused_element
   NativeAdLoadingData loading() {
     return NativeAdLoadingData();
   }
 
-// ignore: unused_element
-  NativeAdErrorData error({@required String message}) {
+  NativeAdErrorData error({required String message}) {
     return NativeAdErrorData(
       message: message,
     );
   }
 
-// ignore: unused_element
   NativeAd fromJson(Map<String, Object> json) {
     return NativeAd.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAd = _$NativeAdTearOff();
 
 /// @nodoc
 mixin _$NativeAd {
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    @required TResult loading(),
-    @required TResult error(String message),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    @required TResult loading(NativeAdLoadingData value),
-    @required TResult error(NativeAdErrorData value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(NativeAdData value) $default, {
+    required TResult Function(NativeAdLoadingData value) loading,
+    required TResult Function(NativeAdErrorData value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    TResult loading(NativeAdLoadingData value),
-    TResult error(NativeAdErrorData value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(NativeAdData value)? $default, {
+    TResult Function(NativeAdLoadingData value)? loading,
+    TResult Function(NativeAdErrorData value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -978,24 +1022,24 @@ abstract class $NativeAdDataCopyWith<$Res> {
   $Res call(
       {String headline,
       String body,
-      NativeAdImage icon,
-      String callToAction,
-      String advertiser,
-      String price,
-      String store,
-      double starRating,
-      bool isCustomClickGestureEnabled,
-      bool isCustomMuteThisAdEnabled,
-      AdChoicesInfo adChoicesInfo,
-      NativeAdMediaContent mediaContent,
+      NativeAdImage? icon,
+      String? callToAction,
+      String? advertiser,
+      String? price,
+      String? store,
+      double? starRating,
+      bool? isCustomClickGestureEnabled,
+      bool? isCustomMuteThisAdEnabled,
+      AdChoicesInfo? adChoicesInfo,
+      NativeAdMediaContent? mediaContent,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images,
       @JsonKey(defaultValue: const <String>[])
           List<String> muteThisAdReasons});
 
-  $NativeAdImageCopyWith<$Res> get icon;
-  $AdChoicesInfoCopyWith<$Res> get adChoicesInfo;
-  $NativeAdMediaContentCopyWith<$Res> get mediaContent;
+  $NativeAdImageCopyWith<$Res>? get icon;
+  $AdChoicesInfoCopyWith<$Res>? get adChoicesInfo;
+  $NativeAdMediaContentCopyWith<$Res>? get mediaContent;
 }
 
 /// @nodoc
@@ -1010,79 +1054,110 @@ class _$NativeAdDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object headline = freezed,
-    Object body = freezed,
-    Object icon = freezed,
-    Object callToAction = freezed,
-    Object advertiser = freezed,
-    Object price = freezed,
-    Object store = freezed,
-    Object starRating = freezed,
-    Object isCustomClickGestureEnabled = freezed,
-    Object isCustomMuteThisAdEnabled = freezed,
-    Object adChoicesInfo = freezed,
-    Object mediaContent = freezed,
-    Object images = freezed,
-    Object muteThisAdReasons = freezed,
+    Object? headline = freezed,
+    Object? body = freezed,
+    Object? icon = freezed,
+    Object? callToAction = freezed,
+    Object? advertiser = freezed,
+    Object? price = freezed,
+    Object? store = freezed,
+    Object? starRating = freezed,
+    Object? isCustomClickGestureEnabled = freezed,
+    Object? isCustomMuteThisAdEnabled = freezed,
+    Object? adChoicesInfo = freezed,
+    Object? mediaContent = freezed,
+    Object? images = freezed,
+    Object? muteThisAdReasons = freezed,
   }) {
     return _then(NativeAdData(
-      headline: headline == freezed ? _value.headline : headline as String,
-      body: body == freezed ? _value.body : body as String,
-      icon: icon == freezed ? _value.icon : icon as NativeAdImage,
+      headline: headline == freezed
+          ? _value.headline
+          : headline // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: icon == freezed
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as NativeAdImage?,
       callToAction: callToAction == freezed
           ? _value.callToAction
-          : callToAction as String,
-      advertiser:
-          advertiser == freezed ? _value.advertiser : advertiser as String,
-      price: price == freezed ? _value.price : price as String,
-      store: store == freezed ? _value.store : store as String,
-      starRating:
-          starRating == freezed ? _value.starRating : starRating as double,
+          : callToAction // ignore: cast_nullable_to_non_nullable
+              as String?,
+      advertiser: advertiser == freezed
+          ? _value.advertiser
+          : advertiser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      price: price == freezed
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String?,
+      store: store == freezed
+          ? _value.store
+          : store // ignore: cast_nullable_to_non_nullable
+              as String?,
+      starRating: starRating == freezed
+          ? _value.starRating
+          : starRating // ignore: cast_nullable_to_non_nullable
+              as double?,
       isCustomClickGestureEnabled: isCustomClickGestureEnabled == freezed
           ? _value.isCustomClickGestureEnabled
-          : isCustomClickGestureEnabled as bool,
+          : isCustomClickGestureEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isCustomMuteThisAdEnabled: isCustomMuteThisAdEnabled == freezed
           ? _value.isCustomMuteThisAdEnabled
-          : isCustomMuteThisAdEnabled as bool,
+          : isCustomMuteThisAdEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
       adChoicesInfo: adChoicesInfo == freezed
           ? _value.adChoicesInfo
-          : adChoicesInfo as AdChoicesInfo,
+          : adChoicesInfo // ignore: cast_nullable_to_non_nullable
+              as AdChoicesInfo?,
       mediaContent: mediaContent == freezed
           ? _value.mediaContent
-          : mediaContent as NativeAdMediaContent,
-      images: images == freezed ? _value.images : images as List<NativeAdImage>,
+          : mediaContent // ignore: cast_nullable_to_non_nullable
+              as NativeAdMediaContent?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<NativeAdImage>,
       muteThisAdReasons: muteThisAdReasons == freezed
           ? _value.muteThisAdReasons
-          : muteThisAdReasons as List<String>,
+          : muteThisAdReasons // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 
   @override
-  $NativeAdImageCopyWith<$Res> get icon {
+  $NativeAdImageCopyWith<$Res>? get icon {
     if (_value.icon == null) {
       return null;
     }
-    return $NativeAdImageCopyWith<$Res>(_value.icon, (value) {
+
+    return $NativeAdImageCopyWith<$Res>(_value.icon!, (value) {
       return _then(_value.copyWith(icon: value));
     });
   }
 
   @override
-  $AdChoicesInfoCopyWith<$Res> get adChoicesInfo {
+  $AdChoicesInfoCopyWith<$Res>? get adChoicesInfo {
     if (_value.adChoicesInfo == null) {
       return null;
     }
-    return $AdChoicesInfoCopyWith<$Res>(_value.adChoicesInfo, (value) {
+
+    return $AdChoicesInfoCopyWith<$Res>(_value.adChoicesInfo!, (value) {
       return _then(_value.copyWith(adChoicesInfo: value));
     });
   }
 
   @override
-  $NativeAdMediaContentCopyWith<$Res> get mediaContent {
+  $NativeAdMediaContentCopyWith<$Res>? get mediaContent {
     if (_value.mediaContent == null) {
       return null;
     }
-    return $NativeAdMediaContentCopyWith<$Res>(_value.mediaContent, (value) {
+
+    return $NativeAdMediaContentCopyWith<$Res>(_value.mediaContent!, (value) {
       return _then(_value.copyWith(mediaContent: value));
     });
   }
@@ -1091,12 +1166,10 @@ class _$NativeAdDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$NativeAdData implements NativeAdData {
+class _$NativeAdData extends NativeAdData {
   _$NativeAdData(
-      {@required
-          this.headline,
-      @required
-          this.body,
+      {required this.headline,
+      required this.body,
       this.icon,
       this.callToAction,
       this.advertiser,
@@ -1111,10 +1184,7 @@ class _$NativeAdData implements NativeAdData {
           this.images = const <NativeAdImage>[],
       @JsonKey(defaultValue: const <String>[])
           this.muteThisAdReasons = const <String>[]})
-      : assert(headline != null),
-        assert(body != null),
-        assert(images != null),
-        assert(muteThisAdReasons != null);
+      : super._();
 
   factory _$NativeAdData.fromJson(Map<String, dynamic> json) =>
       _$_$NativeAdDataFromJson(json);
@@ -1124,25 +1194,25 @@ class _$NativeAdData implements NativeAdData {
   @override
   final String body;
   @override
-  final NativeAdImage icon;
+  final NativeAdImage? icon;
   @override
-  final String callToAction;
+  final String? callToAction;
   @override
-  final String advertiser;
+  final String? advertiser;
   @override
-  final String price;
+  final String? price;
   @override
-  final String store;
+  final String? store;
   @override
-  final double starRating;
+  final double? starRating;
   @override
-  final bool isCustomClickGestureEnabled;
+  final bool? isCustomClickGestureEnabled;
   @override
-  final bool isCustomMuteThisAdEnabled;
+  final bool? isCustomMuteThisAdEnabled;
   @override
-  final AdChoicesInfo adChoicesInfo;
+  final AdChoicesInfo? adChoicesInfo;
   @override
-  final NativeAdMediaContent mediaContent;
+  final NativeAdMediaContent? mediaContent;
   @override
   @JsonKey(defaultValue: const <NativeAdImage>[])
   final List<NativeAdImage> images;
@@ -1150,24 +1220,9 @@ class _$NativeAdData implements NativeAdData {
   @JsonKey(defaultValue: const <String>[])
   final List<String> muteThisAdReasons;
 
-  bool _didimage = false;
-  NativeAdImage _image;
-
-  @override
-  NativeAdImage get image {
-    if (_didimage == false) {
-      _didimage = true;
-      _image = maybeMap(
-        (data) => data.images.isNotEmpty ? data.images.first : null,
-        orElse: () => null,
-      );
-    }
-    return _image;
-  }
-
   @override
   String toString() {
-    return 'NativeAd(headline: $headline, body: $body, icon: $icon, callToAction: $callToAction, advertiser: $advertiser, price: $price, store: $store, starRating: $starRating, isCustomClickGestureEnabled: $isCustomClickGestureEnabled, isCustomMuteThisAdEnabled: $isCustomMuteThisAdEnabled, adChoicesInfo: $adChoicesInfo, mediaContent: $mediaContent, images: $images, muteThisAdReasons: $muteThisAdReasons, image: $image)';
+    return 'NativeAd(headline: $headline, body: $body, icon: $icon, callToAction: $callToAction, advertiser: $advertiser, price: $price, store: $store, starRating: $starRating, isCustomClickGestureEnabled: $isCustomClickGestureEnabled, isCustomMuteThisAdEnabled: $isCustomMuteThisAdEnabled, adChoicesInfo: $adChoicesInfo, mediaContent: $mediaContent, images: $images, muteThisAdReasons: $muteThisAdReasons)';
   }
 
   @override
@@ -1235,36 +1290,35 @@ class _$NativeAdData implements NativeAdData {
       const DeepCollectionEquality().hash(images) ^
       const DeepCollectionEquality().hash(muteThisAdReasons);
 
+  @JsonKey(ignore: true)
   @override
   $NativeAdDataCopyWith<NativeAdData> get copyWith =>
       _$NativeAdDataCopyWithImpl<NativeAdData>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(String message) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return $default(
         headline,
         body,
@@ -1284,29 +1338,29 @@ class _$NativeAdData implements NativeAdData {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(
           headline,
@@ -1329,26 +1383,22 @@ class _$NativeAdData implements NativeAdData {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    @required TResult loading(NativeAdLoadingData value),
-    @required TResult error(NativeAdErrorData value),
+  TResult map<TResult extends Object?>(
+    TResult Function(NativeAdData value) $default, {
+    required TResult Function(NativeAdLoadingData value) loading,
+    required TResult Function(NativeAdErrorData value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    TResult loading(NativeAdLoadingData value),
-    TResult error(NativeAdErrorData value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(NativeAdData value)? $default, {
+    TResult Function(NativeAdLoadingData value)? loading,
+    TResult Function(NativeAdErrorData value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -1361,47 +1411,48 @@ class _$NativeAdData implements NativeAdData {
   }
 }
 
-abstract class NativeAdData implements NativeAd {
+abstract class NativeAdData extends NativeAd {
   factory NativeAdData(
-      {@required
-          String headline,
-      @required
-          String body,
-      NativeAdImage icon,
-      String callToAction,
-      String advertiser,
-      String price,
-      String store,
-      double starRating,
-      bool isCustomClickGestureEnabled,
-      bool isCustomMuteThisAdEnabled,
-      AdChoicesInfo adChoicesInfo,
-      NativeAdMediaContent mediaContent,
+      {required String headline,
+      required String body,
+      NativeAdImage? icon,
+      String? callToAction,
+      String? advertiser,
+      String? price,
+      String? store,
+      double? starRating,
+      bool? isCustomClickGestureEnabled,
+      bool? isCustomMuteThisAdEnabled,
+      AdChoicesInfo? adChoicesInfo,
+      NativeAdMediaContent? mediaContent,
       @JsonKey(defaultValue: const <NativeAdImage>[])
           List<NativeAdImage> images,
       @JsonKey(defaultValue: const <String>[])
           List<String> muteThisAdReasons}) = _$NativeAdData;
+  NativeAdData._() : super._();
 
   factory NativeAdData.fromJson(Map<String, dynamic> json) =
       _$NativeAdData.fromJson;
 
-  String get headline;
-  String get body;
-  NativeAdImage get icon;
-  String get callToAction;
-  String get advertiser;
-  String get price;
-  String get store;
-  double get starRating;
-  bool get isCustomClickGestureEnabled;
-  bool get isCustomMuteThisAdEnabled;
-  AdChoicesInfo get adChoicesInfo;
-  NativeAdMediaContent get mediaContent;
+  String get headline => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
+  NativeAdImage? get icon => throw _privateConstructorUsedError;
+  String? get callToAction => throw _privateConstructorUsedError;
+  String? get advertiser => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
+  String? get store => throw _privateConstructorUsedError;
+  double? get starRating => throw _privateConstructorUsedError;
+  bool? get isCustomClickGestureEnabled => throw _privateConstructorUsedError;
+  bool? get isCustomMuteThisAdEnabled => throw _privateConstructorUsedError;
+  AdChoicesInfo? get adChoicesInfo => throw _privateConstructorUsedError;
+  NativeAdMediaContent? get mediaContent => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: const <NativeAdImage>[])
-  List<NativeAdImage> get images;
+  List<NativeAdImage> get images => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: const <String>[])
-  List<String> get muteThisAdReasons;
-  $NativeAdDataCopyWith<NativeAdData> get copyWith;
+  List<String> get muteThisAdReasons => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdDataCopyWith<NativeAdData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1426,30 +1477,15 @@ class _$NativeAdLoadingDataCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$NativeAdLoadingData implements NativeAdLoadingData {
-  _$NativeAdLoadingData();
+class _$NativeAdLoadingData extends NativeAdLoadingData {
+  _$NativeAdLoadingData() : super._();
 
   factory _$NativeAdLoadingData.fromJson(Map<String, dynamic> json) =>
       _$_$NativeAdLoadingDataFromJson(json);
 
-  bool _didimage = false;
-  NativeAdImage _image;
-
-  @override
-  NativeAdImage get image {
-    if (_didimage == false) {
-      _didimage = true;
-      _image = maybeMap(
-        (data) => data.images.isNotEmpty ? data.images.first : null,
-        orElse: () => null,
-      );
-    }
-    return _image;
-  }
-
   @override
   String toString() {
-    return 'NativeAd.loading(image: $image)';
+    return 'NativeAd.loading()';
   }
 
   @override
@@ -1462,58 +1498,56 @@ class _$NativeAdLoadingData implements NativeAdLoadingData {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(String message) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -1522,26 +1556,22 @@ class _$NativeAdLoadingData implements NativeAdLoadingData {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    @required TResult loading(NativeAdLoadingData value),
-    @required TResult error(NativeAdErrorData value),
+  TResult map<TResult extends Object?>(
+    TResult Function(NativeAdData value) $default, {
+    required TResult Function(NativeAdLoadingData value) loading,
+    required TResult Function(NativeAdErrorData value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    TResult loading(NativeAdLoadingData value),
-    TResult error(NativeAdErrorData value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(NativeAdData value)? $default, {
+    TResult Function(NativeAdLoadingData value)? loading,
+    TResult Function(NativeAdErrorData value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -1554,8 +1584,9 @@ class _$NativeAdLoadingData implements NativeAdLoadingData {
   }
 }
 
-abstract class NativeAdLoadingData implements NativeAd {
+abstract class NativeAdLoadingData extends NativeAd {
   factory NativeAdLoadingData() = _$NativeAdLoadingData;
+  NativeAdLoadingData._() : super._();
 
   factory NativeAdLoadingData.fromJson(Map<String, dynamic> json) =
       _$NativeAdLoadingData.fromJson;
@@ -1581,10 +1612,13 @@ class _$NativeAdErrorDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(NativeAdErrorData(
-      message: message == freezed ? _value.message : message as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1592,8 +1626,8 @@ class _$NativeAdErrorDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$NativeAdErrorData implements NativeAdErrorData {
-  _$NativeAdErrorData({@required this.message}) : assert(message != null);
+class _$NativeAdErrorData extends NativeAdErrorData {
+  _$NativeAdErrorData({required this.message}) : super._();
 
   factory _$NativeAdErrorData.fromJson(Map<String, dynamic> json) =>
       _$_$NativeAdErrorDataFromJson(json);
@@ -1601,24 +1635,9 @@ class _$NativeAdErrorData implements NativeAdErrorData {
   @override
   final String message;
 
-  bool _didimage = false;
-  NativeAdImage _image;
-
-  @override
-  NativeAdImage get image {
-    if (_didimage == false) {
-      _didimage = true;
-      _image = maybeMap(
-        (data) => data.images.isNotEmpty ? data.images.first : null,
-        orElse: () => null,
-      );
-    }
-    return _image;
-  }
-
   @override
   String toString() {
-    return 'NativeAd.error(message: $message, image: $image)';
+    return 'NativeAd.error(message: $message)';
   }
 
   @override
@@ -1633,64 +1652,63 @@ class _$NativeAdErrorData implements NativeAdErrorData {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   $NativeAdErrorDataCopyWith<NativeAdErrorData> get copyWith =>
       _$NativeAdErrorDataCopyWithImpl<NativeAdErrorData>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    @required TResult loading(),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)
+        $default, {
+    required TResult Function() loading,
+    required TResult Function(String message) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String headline,
-        String body,
-        NativeAdImage icon,
-        String callToAction,
-        String advertiser,
-        String price,
-        String store,
-        double starRating,
-        bool isCustomClickGestureEnabled,
-        bool isCustomMuteThisAdEnabled,
-        AdChoicesInfo adChoicesInfo,
-        NativeAdMediaContent mediaContent,
-        @JsonKey(defaultValue: const <NativeAdImage>[])
-            List<NativeAdImage> images,
-        @JsonKey(defaultValue: const <String>[])
-            List<String> muteThisAdReasons), {
-    TResult loading(),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String headline,
+            String body,
+            NativeAdImage? icon,
+            String? callToAction,
+            String? advertiser,
+            String? price,
+            String? store,
+            double? starRating,
+            bool? isCustomClickGestureEnabled,
+            bool? isCustomMuteThisAdEnabled,
+            AdChoicesInfo? adChoicesInfo,
+            NativeAdMediaContent? mediaContent,
+            @JsonKey(defaultValue: const <NativeAdImage>[])
+                List<NativeAdImage> images,
+            @JsonKey(defaultValue: const <String>[])
+                List<String> muteThisAdReasons)?
+        $default, {
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(message);
     }
@@ -1699,26 +1717,22 @@ class _$NativeAdErrorData implements NativeAdErrorData {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    @required TResult loading(NativeAdLoadingData value),
-    @required TResult error(NativeAdErrorData value),
+  TResult map<TResult extends Object?>(
+    TResult Function(NativeAdData value) $default, {
+    required TResult Function(NativeAdLoadingData value) loading,
+    required TResult Function(NativeAdErrorData value) error,
   }) {
-    assert($default != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(NativeAdData value), {
-    TResult loading(NativeAdLoadingData value),
-    TResult error(NativeAdErrorData value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(NativeAdData value)? $default, {
+    TResult Function(NativeAdLoadingData value)? loading,
+    TResult Function(NativeAdErrorData value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1731,12 +1745,15 @@ class _$NativeAdErrorData implements NativeAdErrorData {
   }
 }
 
-abstract class NativeAdErrorData implements NativeAd {
-  factory NativeAdErrorData({@required String message}) = _$NativeAdErrorData;
+abstract class NativeAdErrorData extends NativeAd {
+  factory NativeAdErrorData({required String message}) = _$NativeAdErrorData;
+  NativeAdErrorData._() : super._();
 
   factory NativeAdErrorData.fromJson(Map<String, dynamic> json) =
       _$NativeAdErrorData.fromJson;
 
-  String get message;
-  $NativeAdErrorDataCopyWith<NativeAdErrorData> get copyWith;
+  String get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdErrorDataCopyWith<NativeAdErrorData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

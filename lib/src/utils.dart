@@ -76,9 +76,8 @@ Widget buildAndroidPlatformView(
   Map<String, dynamic> params,
   String viewType, [
   bool useHybridComposition = false,
-  void Function(int) onPlatformViewCreated,
+  void Function(int)? onPlatformViewCreated,
 ]) {
-  assert(useHybridComposition != null);
   const gestures = <Factory<OneSequenceGestureRecognizer>>{};
   if (!useHybridComposition)
     // virtual display
@@ -122,7 +121,7 @@ Widget buildAndroidPlatformView(
 }
 
 @freezed
-abstract class AdError with _$AdError {
+class AdError with _$AdError {
   const factory AdError({
     /// Gets the error code. Possible error codes:
     /// - App Id Missing (The ad request was not made due to a missing app ID): 8
@@ -141,26 +140,27 @@ abstract class AdError with _$AdError {
     ///
     /// Global error codes:
     /// - Internal error (Something happened internally; for instance, an invalid response was received from the ad server): 0
-    @required int code,
+    required int code,
 
     /// Gets an error message. For example "Account not approved yet".
     /// See [this](https://support.google.com/admob/answer/9905175) for explanations of common errors.
-    @required String message,
+    required String message,
 
     /// Gets the domain from which the error came.
-    @required String domain,
+    required String domain,
   }) = _AdError;
 
   factory AdError.fromJson(Map<String, dynamic> json) => _$AdErrorFromJson(json);
 }
 
 mixin AttachableMixin {
-  int _client;
+  int? _client;
   bool get isAttached => _client != null;
-  DateTime attachTime;
+  DateTime? attachTime;
 
   /// Returns true if something attached for longer than a second.
-  bool hasBeenAttachedTo() => attachTime != null && attachTime.add(const Duration(seconds: 1)).isBefore(DateTime.now());
+  bool hasBeenAttachedTo() =>
+      attachTime != null && attachTime!.add(const Duration(seconds: 1)).isBefore(DateTime.now());
 
   @mustCallSuper
   void attach(dynamic object) {
@@ -190,8 +190,8 @@ abstract class AdMethodChannel<T> implements _AdMethodChannelImpl {
     init();
   }
 
-  Memoizer<bool> initMemoizer;
-  MethodChannel channel;
+  Memoizer? initMemoizer;
+  MethodChannel? channel;
   bool get disposed => channel == null;
   String get id => hashCode.toString();
   Map<String, dynamic> get initParams => const <String, dynamic>{};
@@ -204,8 +204,7 @@ abstract class AdMethodChannel<T> implements _AdMethodChannelImpl {
     return SynchronousFuture(null);
   }
 
-  @protected
-  @mustCallSuper
+  @protected @mustCallSuper
   Future init() {
     channel ??= MethodChannel(id)..setMethodCallHandler(_handleMethodCall);
     return (initMemoizer ??= Memoizer(
@@ -226,7 +225,7 @@ abstract class AdMethodChannel<T> implements _AdMethodChannelImpl {
       this.channel = null;
 
       try {
-        await channel.invokeMethod('dispose');
+        await channel?.invokeMethod('dispose');
       } catch (_) {
         this.channel = channel;
         rethrow;

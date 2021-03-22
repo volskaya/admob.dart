@@ -61,6 +61,20 @@ mixin _$NativeAdController on _NativeAdController, Store {
     }
   }
 
+  final _$_NativeAdControllerActionController =
+      ActionController(name: '_NativeAdController');
+
+  @override
+  void handleMethodCall(MethodCall call) {
+    final _$actionInfo = _$_NativeAdControllerActionController.startAction(
+        name: '_NativeAdController.handleMethodCall');
+    try {
+      return super.handleMethodCall(call);
+    } finally {
+      _$_NativeAdControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

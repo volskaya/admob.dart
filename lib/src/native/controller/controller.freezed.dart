@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'controller.dart';
 
@@ -9,11 +9,13 @@ part of 'controller.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$NativeAdVideoStateTearOff {
   const _$NativeAdVideoStateTearOff();
 
-// ignore: unused_element
   _NativeAdVideoState call(
       {NativeAdVideoPlaybackState playback = NativeAdVideoPlaybackState.paused,
       NativeAdVideoLifecycle lifecycle = NativeAdVideoLifecycle.idle,
@@ -27,16 +29,17 @@ class _$NativeAdVideoStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdVideoState = _$NativeAdVideoStateTearOff();
 
 /// @nodoc
 mixin _$NativeAdVideoState {
-  NativeAdVideoPlaybackState get playback;
-  NativeAdVideoLifecycle get lifecycle;
-  bool get muted;
+  NativeAdVideoPlaybackState get playback => throw _privateConstructorUsedError;
+  NativeAdVideoLifecycle get lifecycle => throw _privateConstructorUsedError;
+  bool get muted => throw _privateConstructorUsedError;
 
-  $NativeAdVideoStateCopyWith<NativeAdVideoState> get copyWith;
+  @JsonKey(ignore: true)
+  $NativeAdVideoStateCopyWith<NativeAdVideoState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,18 +64,23 @@ class _$NativeAdVideoStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object playback = freezed,
-    Object lifecycle = freezed,
-    Object muted = freezed,
+    Object? playback = freezed,
+    Object? lifecycle = freezed,
+    Object? muted = freezed,
   }) {
     return _then(_value.copyWith(
       playback: playback == freezed
           ? _value.playback
-          : playback as NativeAdVideoPlaybackState,
+          : playback // ignore: cast_nullable_to_non_nullable
+              as NativeAdVideoPlaybackState,
       lifecycle: lifecycle == freezed
           ? _value.lifecycle
-          : lifecycle as NativeAdVideoLifecycle,
-      muted: muted == freezed ? _value.muted : muted as bool,
+          : lifecycle // ignore: cast_nullable_to_non_nullable
+              as NativeAdVideoLifecycle,
+      muted: muted == freezed
+          ? _value.muted
+          : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,18 +111,23 @@ class __$NativeAdVideoStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object playback = freezed,
-    Object lifecycle = freezed,
-    Object muted = freezed,
+    Object? playback = freezed,
+    Object? lifecycle = freezed,
+    Object? muted = freezed,
   }) {
     return _then(_NativeAdVideoState(
       playback: playback == freezed
           ? _value.playback
-          : playback as NativeAdVideoPlaybackState,
+          : playback // ignore: cast_nullable_to_non_nullable
+              as NativeAdVideoPlaybackState,
       lifecycle: lifecycle == freezed
           ? _value.lifecycle
-          : lifecycle as NativeAdVideoLifecycle,
-      muted: muted == freezed ? _value.muted : muted as bool,
+          : lifecycle // ignore: cast_nullable_to_non_nullable
+              as NativeAdVideoLifecycle,
+      muted: muted == freezed
+          ? _value.muted
+          : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -126,10 +139,7 @@ class _$_NativeAdVideoState
   const _$_NativeAdVideoState(
       {this.playback = NativeAdVideoPlaybackState.paused,
       this.lifecycle = NativeAdVideoLifecycle.idle,
-      this.muted = true})
-      : assert(playback != null),
-        assert(lifecycle != null),
-        assert(muted != null);
+      this.muted = true});
 
   @JsonKey(defaultValue: NativeAdVideoPlaybackState.paused)
   @override
@@ -177,6 +187,7 @@ class _$_NativeAdVideoState
       const DeepCollectionEquality().hash(lifecycle) ^
       const DeepCollectionEquality().hash(muted);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdVideoStateCopyWith<_NativeAdVideoState> get copyWith =>
       __$NativeAdVideoStateCopyWithImpl<_NativeAdVideoState>(this, _$identity);
@@ -189,11 +200,13 @@ abstract class _NativeAdVideoState implements NativeAdVideoState {
       bool muted}) = _$_NativeAdVideoState;
 
   @override
-  NativeAdVideoPlaybackState get playback;
+  NativeAdVideoPlaybackState get playback => throw _privateConstructorUsedError;
   @override
-  NativeAdVideoLifecycle get lifecycle;
+  NativeAdVideoLifecycle get lifecycle => throw _privateConstructorUsedError;
   @override
-  bool get muted;
+  bool get muted => throw _privateConstructorUsedError;
   @override
-  _$NativeAdVideoStateCopyWith<_NativeAdVideoState> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdVideoStateCopyWith<_NativeAdVideoState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
