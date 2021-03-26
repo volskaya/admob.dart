@@ -26,7 +26,7 @@ mixin NativeAdWidget on StatefulWidget {
 /// rebuilding it, when the controller is considered old on `initState` or app coming
 /// into the foreground.
 abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
-  late final RefreshStorageEntry<NativeAdWidgetStateStorage> storage;
+  late RefreshStorageEntry<NativeAdWidgetStateStorage> storage;
   NativeAdController? get controller => widget.controller ?? storage.value?.controller;
 
   NativeAdWidgetStateStorage _buildStorage() => NativeAdWidgetStateStorage(options: widget.options);
