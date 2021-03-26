@@ -171,6 +171,7 @@ class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependenc
     } else {
       if (!_isControllerReady()) await AwaitRoute.of(context);
 
+      if (!mounted) return;
       final isReady = _isControllerReady(); // Check again.
       if (!isReady && Scrollable.recommendDeferredLoadingForContext(context)) {
         WidgetsBinding.instance!.addPostFrameCallback(_deferredLoad);
@@ -187,6 +188,7 @@ class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependenc
       return;
     } else {
       await AwaitRoute.of(context);
+      if (!mounted) return;
       if (Scrollable.recommendIdleLoadingForContext(context)) {
         WidgetsBinding.instance!.addPostFrameCallback(_deferredIdleLoad);
       } else {
