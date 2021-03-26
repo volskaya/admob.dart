@@ -26,8 +26,8 @@ mixin NativeAdWidget on StatefulWidget {
 /// rebuilding it, when the controller is considered old on `initState` or app coming
 /// into the foreground.
 abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
-  late RefreshStorageEntry<NativeAdWidgetStateStorage> storage;
-  NativeAdController? get controller => widget.controller ?? storage.value?.controller;
+  RefreshStorageEntry<NativeAdWidgetStateStorage>? storage;
+  NativeAdController? get controller => widget.controller ?? storage?.value?.controller;
 
   NativeAdWidgetStateStorage _buildStorage() => NativeAdWidgetStateStorage(options: widget.options);
 
@@ -40,8 +40,8 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
   void _checkOldController() {
     assert(widget.controller == null);
 
-    if (storage.value?.controller.considerThisOld() == true) {
-      storage.dispose();
+    if (storage?.value?.controller.considerThisOld() == true) {
+      storage!.dispose();
       RefreshStorage.destroy(context: context, identifier: widget.identifier);
 
       // This will build a fresh controller and fetch a new ad.
@@ -78,7 +78,7 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
   @mustCallSuper
   @override
   void dispose() {
-    storage.dispose();
+    storage?.dispose();
     super.dispose();
   }
 }
