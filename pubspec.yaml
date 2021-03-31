@@ -1,6 +1,6 @@
 name: admob
 description: Admob SDK for Flutter.
-version: 0.0.1
+version: 0.0.2
 author: Roland Volskaya
 repository: https://github.com/volskaya/flutter_helpers
 publish_to: none
