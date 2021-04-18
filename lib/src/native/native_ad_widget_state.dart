@@ -45,18 +45,17 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
       RefreshStorage.destroy(context: context, identifier: widget.identifier);
 
       // This will build a fresh controller and fetch a new ad.
-      setState(
-        () => storage = RefreshStorage.write<NativeAdWidgetStateStorage>(
-          context: context,
-          identifier: widget.identifier,
-          builder: _buildStorage,
-        ),
+      storage = RefreshStorage.write<NativeAdWidgetStateStorage>(
+        context: context,
+        identifier: widget.identifier,
+        builder: _buildStorage,
       );
+
+      markNeedsBuild();
     }
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void initState() {
     if (widget.controller == null) {
       _createStorage(widget.identifier);
@@ -67,16 +66,14 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
     super.initState();
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void didUpdateWidget(covariant T oldWidget) {
     assert(oldWidget.controller?.id == widget.controller?.id);
     assert(oldWidget.identifier == widget.identifier);
     super.didUpdateWidget(oldWidget);
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void dispose() {
     storage?.dispose();
     super.dispose();

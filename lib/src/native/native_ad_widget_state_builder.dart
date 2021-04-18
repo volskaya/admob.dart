@@ -21,12 +21,9 @@ class NativeAdWidgetStateBuilder extends StatefulWidget implements NativeAdWidge
     this.controller,
   }) : super(key: key);
 
-  @override
-  final String identifier;
-  @override
-  final String options;
-  @override
-  final NativeAdController? controller;
+  @override final String identifier;
+  @override final String options;
+  @override final NativeAdController? controller;
 
   final int preloadCount;
   final Widget Function(BuildContext, NativeAdController, NativeAdData) builder;
@@ -41,10 +38,12 @@ class NativeAdWidgetStateBuilder extends StatefulWidget implements NativeAdWidge
 class _NativeAdWidgetStateBuilderState extends NativeAdWidgetState<NativeAdWidgetStateBuilder> {
   Widget _buildBody(BuildContext context, NativeAd nativeAd) {
     final child = nativeAd.map(
-      (data) => KeyedSubtree(
-        key: ValueKey(data.headline), // FIXME: Find a more viable variable to assert equality with.
-        child: widget.builder(context, controller!, data),
-      ),
+      (data) => controller != null
+          ? KeyedSubtree(
+              key: ValueKey(data.headline),
+              child: widget.builder(context, controller!, data),
+            )
+          : const SizedBox.shrink(key: ValueKey('Controller missing')), // FIXME: Sometimes the controller is missing.
       loading: (data) => widget.loadingBuilder != null
           ? KeyedSubtree(
               key: const ValueKey('loading'),
