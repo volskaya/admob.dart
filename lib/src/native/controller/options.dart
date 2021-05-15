@@ -14,27 +14,18 @@ const int MEDIA_ASPECT_RATIO_PORTRAIT = 3;
 const int MEDIA_ASPECT_RATIO_SQUARE = 4;
 
 enum AdChoicesPlacement {
-  @JsonValue(0)
-  topLeft,
-  @JsonValue(1)
-  topRight,
-  @JsonValue(2)
-  bottomRight,
-  @JsonValue(3)
-  bottomLeft,
+  @JsonValue(0) topLeft,
+  @JsonValue(1) topRight,
+  @JsonValue(2) bottomRight,
+  @JsonValue(3) bottomLeft,
 }
 
 enum AdMediaAspectRatio {
-  @JsonValue(0)
-  unknown,
-  @JsonValue(1)
-  any,
-  @JsonValue(2)
-  landscape,
-  @JsonValue(3)
-  portrait,
-  @JsonValue(4)
-  square,
+  @JsonValue(0) unknown,
+  @JsonValue(1) any,
+  @JsonValue(2) landscape,
+  @JsonValue(3) portrait,
+  @JsonValue(4) square,
 }
 
 @freezed

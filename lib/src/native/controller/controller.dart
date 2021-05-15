@@ -103,8 +103,7 @@ class NativeAdController extends _NativeAdController with _$NativeAdController {
 abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with AttachableMixin, Store {
   _NativeAdController(this.optionsKey);
 
-  @override
-  final String channelName = 'nativeAdController';
+  @override final String channelName = 'nativeAdController';
   final String optionsKey;
 
   /// Options don't exist until [MobileAds.initialize] has been called.
@@ -117,21 +116,16 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   @override
   Map<String, dynamic> get initParams => <String, dynamic>{'options': optionsKey};
 
-  @observable
-  NativeAd nativeAd = NativeAd.loading();
-
-  @observable
-  NativeAdVideoState videoState = const NativeAdVideoState();
-
-  @observable
-  List<String> muteThisAdReasons = const <String>[];
+  @o NativeAd nativeAd = NativeAd.loading();
+  @o NativeAdVideoState videoState = const NativeAdVideoState();
+  @o List<String> muteThisAdReasons = const <String>[];
 
   bool considerThisOld() => loadTime != null && nativeAd.maybeMap((_) => true, orElse: () => false)
       ? DateTime.now().difference(loadTime!) > const Duration(hours: 1)
       : false; // Hasn't even been built yet.
 
   /// Handle the messages the channel sends
-  @override
+  @override @a
   void handleMethodCall(MethodCall call) {
     switch (call.method) {
       // Ad cases.

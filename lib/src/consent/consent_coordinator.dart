@@ -6,23 +6,16 @@ part 'consent_coordinator.freezed.dart';
 part 'consent_coordinator.g.dart';
 
 enum ConsentStatus {
-  @JsonValue(0)
-  unknown,
-  @JsonValue(1)
-  notRequired,
-  @JsonValue(2)
-  required,
-  @JsonValue(3)
-  obtained,
+  @JsonValue(0) unknown,
+  @JsonValue(1) notRequired,
+  @JsonValue(2) required,
+  @JsonValue(3) obtained,
 }
 
 enum ConsentType {
-  @JsonValue(0)
-  unknown,
-  @JsonValue(1)
-  nonPersonalized,
-  @JsonValue(2)
-  personalized,
+  @JsonValue(0) unknown,
+  @JsonValue(1) nonPersonalized,
+  @JsonValue(2) personalized,
 }
 
 @freezed

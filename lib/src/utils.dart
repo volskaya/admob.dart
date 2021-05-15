@@ -204,8 +204,7 @@ abstract class AdMethodChannel<T> implements _AdMethodChannelImpl {
     return SynchronousFuture(null);
   }
 
-  @protected
-  @mustCallSuper
+  @protected @mustCallSuper
   Future init() {
     channel ??= MethodChannel(id)..setMethodCallHandler(_handleMethodCall);
     return (initMemoizer ??= Memoizer(
