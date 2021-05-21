@@ -156,12 +156,12 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   }
 
   // FIXME: Maybe drop clicks, if the controller hasn't been attached to for more than a second.
-  Future<bool> click() async => await channel?.invokeMethod<bool>('click') ?? false;
+  Future<bool> click() async => (await channel?.invokeMethod<bool>('click')) ?? false;
 
   /// Mutes this ad programmatically. Use `null` to mute this ad with the default reason.
-  Future<void> muteThisAd([int? reason]) async => channel?.invokeMethod('mute', {'reason': reason});
+  Future<void> muteThisAd([int? reason]) async => await channel?.invokeMethod('mute', {'reason': reason});
 
-  Future<void> unmountView() async => channel?.invokeMethod('unmountView');
+  Future<void> unmountView() async => await channel?.invokeMethod('unmountView');
   Future<void> mountView() async {
     assert(nativeAd.maybeMap((_) => true, orElse: () => false));
     await channel?.invokeMethod('mountView');

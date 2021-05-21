@@ -32,51 +32,67 @@ class _Element extends ProxyElement {
   void notifyClients(covariant ProxyWidget oldWidget) {}
 
   final lock = Mutex();
-  bool _nativeViewMounted = false;
+  NativeAdController? _mountedController;
   bool _mounted = false;
   ModalRoute? _modalRoute;
 
   /// Video ads build a native ad inside a platform view, so don't
   /// mount any background views. This is safe to call though, the
   /// platform will check for video as well.
-  Future _mountView() => lock.protect(() async {
-        if (_nativeViewMounted || widget.controller.disposed) return;
-        await widget.controller.mountView();
-        if (_mounted) {
-          _nativeViewMounted = true;
-        } else {
-          widget.controller.unmountView();
-        }
-      });
+  Future _mountView(NativeAdController controller) async {
+    await lock.acquire();
+    try {
+      if (_mountedController != null || controller.disposed) return;
+      await controller.mountView();
+      if (_mounted) {
+        _mountedController = controller;
+      } else {
+        await controller.unmountView();
+        _mountedController = null;
+      }
+    } finally {
+      lock.release();
+    }
+  }
 
-  Future _unmountView() => lock.protect(() async {
-        if (!_nativeViewMounted || widget.controller.disposed) return;
-        await widget.controller.unmountView();
-        _nativeViewMounted = false;
-      });
+  Future _unmountView() async {
+    await lock.acquire();
+
+    try {
+      if (_mountedController == null || _mountedController?.disposed == true) return;
+      await _mountedController!.unmountView();
+      _mountedController = null;
+    } finally {
+      lock.release();
+    }
+  }
 
   /// When the current route is not active, the view is not mounted.
-  void _maybeMountView() => lock.protect(() {
-        if (_modalRoute?.isCurrent == true && _mounted && !_nativeViewMounted) {
-          _mountView();
-        } else if ((_modalRoute?.isCurrent != true || !_mounted) && _nativeViewMounted) {
-          _unmountView();
-        }
-      });
+  Future _maybeMountView([NativeAdController? controller]) async {
+    await lock.acquire();
+    try {
+      if (_modalRoute?.isCurrent == true && _mounted && _mountedController == null && controller != null) {
+        _mountView(controller);
+      } else if ((_modalRoute?.isCurrent != true || !_mounted) && _mountedController != null) {
+        _unmountView();
+      }
+    } finally {
+      lock.release();
+    }
+  }
 
   @override
   void mount(Element? parent, dynamic newSlot) {
     super.mount(parent, newSlot);
-    _modalRoute = ModalRoute.of(this);
     _mounted = true;
-    _mountView();
+    didChangeDependencies();
   }
 
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
     _modalRoute = ModalRoute.of(this);
-    _maybeMountView();
+    _maybeMountView(widget.controller);
+    super.didChangeDependencies();
   }
 
   @override
