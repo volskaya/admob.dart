@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:admob/src/native/controller/controller.dart';
+import 'package:await_route/await_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:utils/utils.dart';
 
@@ -12,17 +16,23 @@ class NativeAdGhostView extends ProxyWidget {
     required this.nativeAd,
     required Widget child,
     this.showingVideoContent = true,
+    this.awaitRoute = true,
+    this.awaitScrollable = true,
+    this.delay = const Duration(milliseconds: 450),
   }) : super(key: key, child: child);
 
   final NativeAdController controller;
   final NativeAdData nativeAd;
   final bool showingVideoContent;
+  final bool awaitRoute;
+  final bool awaitScrollable;
+  final Duration delay;
 
   @override
   Element createElement() => _Element(this);
 }
 
-class _Element extends ProxyElement {
+class _Element extends ProxyElement with _AwaitableScrollable {
   _Element(NativeAdGhostView widget) : super(widget);
 
   @override
@@ -33,8 +43,8 @@ class _Element extends ProxyElement {
 
   final lock = Mutex();
   NativeAdController? _mountedController;
-  bool _mounted = false;
   ModalRoute? _modalRoute;
+  @override bool _mounted = false;
 
   /// Video ads build a native ad inside a platform view, so don't
   /// mount any background views. This is safe to call though, the
@@ -70,7 +80,17 @@ class _Element extends ProxyElement {
   /// When the current route is not active, the view is not mounted.
   Future _maybeMountView([NativeAdController? controller]) async {
     await lock.acquire();
+
     try {
+      await Future.wait([
+        if (widget.awaitRoute) AwaitRoute.of(this),
+        if (widget.delay > Duration.zero) Future<void>.delayed(widget.delay),
+        if (widget.awaitScrollable) _awaitScrollable(),
+      ]);
+
+      // Make sure, after awaiting all the futures above, the ascending scrollable is still not scrolling.
+      if (widget.awaitScrollable) await _awaitScrollable();
+
       if (_modalRoute?.isCurrent == true && _mounted && _mountedController == null && controller != null) {
         _mountView(controller);
       } else if ((_modalRoute?.isCurrent != true || !_mounted) && _mountedController != null) {
@@ -100,5 +120,28 @@ class _Element extends ProxyElement {
     _mounted = false;
     _unmountView();
     super.unmount();
+  }
+}
+
+mixin _AwaitableScrollable on BuildContext {
+  bool get _mounted;
+  bool get _isScrolling => Scrollable.recommendIdleLoadingForContext(this);
+
+  void _deferIdleScrollCallback(VoidCallback callback) {
+    if (!_mounted) {
+      callback();
+    } else {
+      if (_isScrolling) {
+        WidgetsBinding.instance!.addPostFrameCallback((_) => _deferIdleScrollCallback(callback));
+      } else {
+        callback();
+      }
+    }
+  }
+
+  Future _awaitScrollable() {
+    final completer = Completer<void>();
+    _deferIdleScrollCallback(completer.complete);
+    return completer.future;
   }
 }

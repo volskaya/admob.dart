@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:admob/src/consent/consent_coordinator.dart';
 import 'package:admob/src/native/controller/options.dart';
+import 'package:admob/src/native/native_ad_builder.dart';
 import 'package:admob/src/platform_props.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -62,11 +63,13 @@ class MobileAds {
     NativeAdPlatformProps? nativeAd,
     List<String>? debugDeviceIds,
     bool underAgeOfConsent = false,
+    bool useTestAds = false,
+    int preloadAds = 0,
   }) async {
     assertPlatformIsSupported();
     assert(!isInitialized);
 
-    bool isDebugging = false;
+    bool isDebugging = useTestAds;
     assert((() {
       isDebugging = true;
       return true;
@@ -99,6 +102,12 @@ class MobileAds {
 
     assertVersionIsSupported(false);
     _initialized = true;
+
+    if (preloadAds > 0) {
+      try {
+        await NativeAdBuilder.preloadControllers(preloadAds);
+      } catch (_) {}
+    }
   }
 
   /// Check if the test id that is being used is for testing or not.

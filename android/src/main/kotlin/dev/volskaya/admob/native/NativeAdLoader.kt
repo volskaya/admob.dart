@@ -3,7 +3,6 @@ package dev.volskaya.admob.native
 import android.content.Context
 import android.util.Log
 import com.google.android.gms.ads.*
-import com.google.android.gms.ads.admanager.AdManagerAdRequest
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 
@@ -69,13 +68,13 @@ class NativeAdLoader(context: Context, unitId: String, options: Map<*, *>) {
                     }
                 })
                 .build()
-
     }
 
     fun loadNext() {
         Log.d(null, "Requesting to load another ad for $key")
-        if (!loader.isLoading) loader.loadAds(request, 5)
-//        loader.loadAd(request)
+        if (!loader.isLoading) {
+            Thread { if (!loader.isLoading) loader.loadAds(request, 1) }.start()
+        }
     }
 
     fun getPooledNativeAd(): PooledNativeAd? {
