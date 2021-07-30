@@ -110,8 +110,8 @@ class NativeAdmobController(
             // Attach listeners to the new ad and assign it to the controller.
             this.nativeAd = nativeAd?.let {
                 it.setMuteThisAdListener { channel.invokeMethod("onAdMuted", it.muteThisAdReasons.map { reasons -> reasons.description }) }
-                if (showVideoContent && it.mediaContent.hasVideoContent()) {
-                    it.mediaContent.videoController.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
+                if (showVideoContent && it.mediaContent?.hasVideoContent() == true) {
+                    it.mediaContent!!.videoController.videoLifecycleCallbacks = object : VideoController.VideoLifecycleCallbacks() {
                         override fun onVideoStart() { channel.invokeMethod("onVideoStart", null) }
                         override fun onVideoPlay() { channel.invokeMethod("onVideoPlay", null) }
                         override fun onVideoPause() { channel.invokeMethod("onVideoPause", null) }

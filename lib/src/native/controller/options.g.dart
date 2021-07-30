@@ -6,38 +6,36 @@ part of 'options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VideoOptions _$_$_VideoOptionsFromJson(Map json) {
-  return _$_VideoOptions(
-    startMuted: json['startMuted'] as bool? ?? true,
-  );
-}
+_$_VideoOptions _$$_VideoOptionsFromJson(Map json) => _$_VideoOptions(
+      startMuted: json['startMuted'] as bool? ?? true,
+    );
 
-Map<String, dynamic> _$_$_VideoOptionsToJson(_$_VideoOptions instance) =>
+Map<String, dynamic> _$$_VideoOptionsToJson(_$_VideoOptions instance) =>
     <String, dynamic>{
       'startMuted': instance.startMuted,
     };
 
-_$_NativeAdOptions _$_$_NativeAdOptionsFromJson(Map json) {
-  return _$_NativeAdOptions(
-    key: json['key'] as String? ?? 'default',
-    showVideoContent: json['showVideoContent'] as bool? ?? true,
-    requestCustomMuteThisAd: json['requestCustomMuteThisAd'] as bool? ?? false,
-    requestMultipleImages: json['requestMultipleImages'] as bool? ?? false,
-    returnUrlsForImageAssets: json['returnUrlsForImageAssets'] as bool? ?? true,
-    adChoicesPlacement: _$enumDecodeNullable(
-            _$AdChoicesPlacementEnumMap, json['adChoicesPlacement']) ??
-        AdChoicesPlacement.topRight,
-    mediaAspectRatio: _$enumDecodeNullable(
-            _$AdMediaAspectRatioEnumMap, json['mediaAspectRatio']) ??
-        AdMediaAspectRatio.landscape,
-    videoOptions: json['videoOptions'] == null
-        ? null
-        : VideoOptions.fromJson(
-            Map<String, dynamic>.from(json['videoOptions'] as Map)),
-  );
-}
+_$_NativeAdOptions _$$_NativeAdOptionsFromJson(Map json) => _$_NativeAdOptions(
+      key: json['key'] as String? ?? 'default',
+      showVideoContent: json['showVideoContent'] as bool? ?? true,
+      requestCustomMuteThisAd:
+          json['requestCustomMuteThisAd'] as bool? ?? false,
+      requestMultipleImages: json['requestMultipleImages'] as bool? ?? false,
+      returnUrlsForImageAssets:
+          json['returnUrlsForImageAssets'] as bool? ?? true,
+      adChoicesPlacement: _$enumDecodeNullable(
+              _$AdChoicesPlacementEnumMap, json['adChoicesPlacement']) ??
+          AdChoicesPlacement.topRight,
+      mediaAspectRatio: _$enumDecodeNullable(
+              _$AdMediaAspectRatioEnumMap, json['mediaAspectRatio']) ??
+          AdMediaAspectRatio.landscape,
+      videoOptions: json['videoOptions'] == null
+          ? null
+          : VideoOptions.fromJson(
+              Map<String, dynamic>.from(json['videoOptions'] as Map)),
+    );
 
-Map<String, dynamic> _$_$_NativeAdOptionsToJson(_$_NativeAdOptions instance) =>
+Map<String, dynamic> _$$_NativeAdOptionsToJson(_$_NativeAdOptions instance) =>
     <String, dynamic>{
       'key': instance.key,
       'showVideoContent': instance.showVideoContent,

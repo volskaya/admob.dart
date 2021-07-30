@@ -6,21 +6,17 @@ part of 'consent_coordinator.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ConsentCoordinatorState _$_$_ConsentCoordinatorStateFromJson(Map json) {
-  return _$_ConsentCoordinatorState(
-    status: _$enumDecodeNullable(_$ConsentStatusEnumMap, json['status']) ??
-        ConsentStatus.unknown,
-    type: _$enumDecodeNullable(_$ConsentTypeEnumMap, json['type']) ??
-        ConsentType.unknown,
-    isContentFormAvailable: json['isContentFormAvailable'] as bool? ?? false,
-  );
-}
+_$_ConsentCoordinatorState _$$_ConsentCoordinatorStateFromJson(Map json) =>
+    _$_ConsentCoordinatorState(
+      status: _$enumDecodeNullable(_$ConsentStatusEnumMap, json['status']) ??
+          ConsentStatus.unknown,
+      isContentFormAvailable: json['isContentFormAvailable'] as bool? ?? false,
+    );
 
-Map<String, dynamic> _$_$_ConsentCoordinatorStateToJson(
+Map<String, dynamic> _$$_ConsentCoordinatorStateToJson(
         _$_ConsentCoordinatorState instance) =>
     <String, dynamic>{
       'status': _$ConsentStatusEnumMap[instance.status],
-      'type': _$ConsentTypeEnumMap[instance.type],
       'isContentFormAvailable': instance.isContentFormAvailable,
     };
 
@@ -68,12 +64,6 @@ const _$ConsentStatusEnumMap = {
   ConsentStatus.obtained: 3,
 };
 
-const _$ConsentTypeEnumMap = {
-  ConsentType.unknown: 0,
-  ConsentType.nonPersonalized: 1,
-  ConsentType.personalized: 2,
-};
-
 // **************************************************************************
 // StoreGenerator
 // **************************************************************************
@@ -88,13 +78,6 @@ mixin _$ConsentCoordinator on _ConsentCoordinator, Store {
       (_$statusComputed ??= Computed<ConsentStatus>(() => super.status,
               name: '_ConsentCoordinator.status'))
           .value;
-  Computed<ConsentType>? _$typeComputed;
-
-  @override
-  ConsentType get type =>
-      (_$typeComputed ??= Computed<ConsentType>(() => super.type,
-              name: '_ConsentCoordinator.type'))
-          .value;
   Computed<bool>? _$isContentFormAvailableComputed;
 
   @override
@@ -107,7 +90,6 @@ mixin _$ConsentCoordinator on _ConsentCoordinator, Store {
   String toString() {
     return '''
 status: ${status},
-type: ${type},
 isContentFormAvailable: ${isContentFormAvailable}
     ''';
   }

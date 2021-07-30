@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'platform_props.dart';
 
@@ -123,14 +123,13 @@ class __$NativeAdPlatformPropsCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_NativeAdPlatformProps implements _NativeAdPlatformProps {
   const _$_NativeAdPlatformProps({required this.unitId, required this.options});
 
   factory _$_NativeAdPlatformProps.fromJson(Map<String, dynamic> json) =>
-      _$_$_NativeAdPlatformPropsFromJson(json);
+      _$$_NativeAdPlatformPropsFromJson(json);
 
   @override
   final String unitId;
@@ -166,7 +165,7 @@ class _$_NativeAdPlatformProps implements _NativeAdPlatformProps {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NativeAdPlatformPropsToJson(this);
+    return _$$_NativeAdPlatformPropsToJson(this);
   }
 }
 
@@ -298,14 +297,13 @@ class __$PlatformPropsCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_PlatformProps implements _PlatformProps {
   const _$_PlatformProps({required this.nativeAd});
 
   factory _$_PlatformProps.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlatformPropsFromJson(json);
+      _$$_PlatformPropsFromJson(json);
 
   @override
   final NativeAdPlatformProps nativeAd;
@@ -335,7 +333,7 @@ class _$_PlatformProps implements _PlatformProps {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlatformPropsToJson(this);
+    return _$$_PlatformPropsToJson(this);
   }
 }
 

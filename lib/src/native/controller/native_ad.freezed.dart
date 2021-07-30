@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'native_ad.dart';
 
@@ -139,9 +139,8 @@ class __$NativeAdImageDrawableCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_NativeAdImageDrawable extends _NativeAdImageDrawable {
   _$_NativeAdImageDrawable(
       {required this.width,
@@ -150,7 +149,7 @@ class _$_NativeAdImageDrawable extends _NativeAdImageDrawable {
       : super._();
 
   factory _$_NativeAdImageDrawable.fromJson(Map<String, dynamic> json) =>
-      _$_$_NativeAdImageDrawableFromJson(json);
+      _$$_NativeAdImageDrawableFromJson(json);
 
   @override
   final double width;
@@ -192,7 +191,7 @@ class _$_NativeAdImageDrawable extends _NativeAdImageDrawable {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NativeAdImageDrawableToJson(this);
+    return _$$_NativeAdImageDrawableToJson(this);
   }
 }
 
@@ -359,14 +358,13 @@ class __$NativeAdImageCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_NativeAdImage implements _NativeAdImage {
   _$_NativeAdImage({required this.uri, required this.scale, this.drawable});
 
   factory _$_NativeAdImage.fromJson(Map<String, dynamic> json) =>
-      _$_$_NativeAdImageFromJson(json);
+      _$$_NativeAdImageFromJson(json);
 
   @override
   final String uri;
@@ -407,7 +405,7 @@ class _$_NativeAdImage implements _NativeAdImage {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NativeAdImageToJson(this);
+    return _$$_NativeAdImageToJson(this);
   }
 }
 
@@ -577,9 +575,8 @@ class __$NativeAdMediaContentCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_NativeAdMediaContent implements _NativeAdMediaContent {
   const _$_NativeAdMediaContent(
       {required this.aspectRatio,
@@ -588,7 +585,7 @@ class _$_NativeAdMediaContent implements _NativeAdMediaContent {
       @Uint8ListConverterNullable() this.mainImage});
 
   factory _$_NativeAdMediaContent.fromJson(Map<String, dynamic> json) =>
-      _$_$_NativeAdMediaContentFromJson(json);
+      _$$_NativeAdMediaContentFromJson(json);
 
   @override
   final double aspectRatio;
@@ -639,7 +636,7 @@ class _$_NativeAdMediaContent implements _NativeAdMediaContent {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NativeAdMediaContentToJson(this);
+    return _$$_NativeAdMediaContentToJson(this);
   }
 }
 
@@ -679,7 +676,7 @@ class _$AdChoicesInfoTearOff {
 
   _AdChoicesInfo call(
       {String? text,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
+      @JsonKey(defaultValue: <NativeAdImage>[])
           List<NativeAdImage> images = const <NativeAdImage>[]}) {
     return _AdChoicesInfo(
       text: text,
@@ -698,7 +695,7 @@ const $AdChoicesInfo = _$AdChoicesInfoTearOff();
 /// @nodoc
 mixin _$AdChoicesInfo {
   String? get text => throw _privateConstructorUsedError;
-  @JsonKey(defaultValue: const <NativeAdImage>[])
+  @JsonKey(defaultValue: <NativeAdImage>[])
   List<NativeAdImage> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -714,8 +711,7 @@ abstract class $AdChoicesInfoCopyWith<$Res> {
       _$AdChoicesInfoCopyWithImpl<$Res>;
   $Res call(
       {String? text,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
-          List<NativeAdImage> images});
+      @JsonKey(defaultValue: <NativeAdImage>[]) List<NativeAdImage> images});
 }
 
 /// @nodoc
@@ -754,8 +750,7 @@ abstract class _$AdChoicesInfoCopyWith<$Res>
   @override
   $Res call(
       {String? text,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
-          List<NativeAdImage> images});
+      @JsonKey(defaultValue: <NativeAdImage>[]) List<NativeAdImage> images});
 }
 
 /// @nodoc
@@ -787,23 +782,22 @@ class __$AdChoicesInfoCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_AdChoicesInfo extends _AdChoicesInfo {
   _$_AdChoicesInfo(
       {this.text,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
+      @JsonKey(defaultValue: <NativeAdImage>[])
           this.images = const <NativeAdImage>[]})
       : super._();
 
   factory _$_AdChoicesInfo.fromJson(Map<String, dynamic> json) =>
-      _$_$_AdChoicesInfoFromJson(json);
+      _$$_AdChoicesInfoFromJson(json);
 
   @override
   final String? text;
   @override
-  @JsonKey(defaultValue: const <NativeAdImage>[])
+  @JsonKey(defaultValue: <NativeAdImage>[])
   final List<NativeAdImage> images;
 
   @override
@@ -834,14 +828,14 @@ class _$_AdChoicesInfo extends _AdChoicesInfo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AdChoicesInfoToJson(this);
+    return _$$_AdChoicesInfoToJson(this);
   }
 }
 
 abstract class _AdChoicesInfo extends AdChoicesInfo {
   factory _AdChoicesInfo(
       {String? text,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
+      @JsonKey(defaultValue: <NativeAdImage>[])
           List<NativeAdImage> images}) = _$_AdChoicesInfo;
   _AdChoicesInfo._() : super._();
 
@@ -851,7 +845,7 @@ abstract class _AdChoicesInfo extends AdChoicesInfo {
   @override
   String? get text => throw _privateConstructorUsedError;
   @override
-  @JsonKey(defaultValue: const <NativeAdImage>[])
+  @JsonKey(defaultValue: <NativeAdImage>[])
   List<NativeAdImage> get images => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -869,7 +863,8 @@ NativeAd _$NativeAdFromJson(Map<String, dynamic> json) {
       return NativeAdErrorData.fromJson(json);
 
     default:
-      throw FallThroughError();
+      throw CheckedFromJsonException(json, 'runtimeType', 'NativeAd',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -890,9 +885,9 @@ class _$NativeAdTearOff {
       bool? isCustomMuteThisAdEnabled,
       AdChoicesInfo? adChoicesInfo,
       NativeAdMediaContent? mediaContent,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
+      @JsonKey(defaultValue: <NativeAdImage>[])
           List<NativeAdImage> images = const <NativeAdImage>[],
-      @JsonKey(defaultValue: const <String>[])
+      @JsonKey(defaultValue: <String>[])
           List<String> muteThisAdReasons = const <String>[]}) {
     return NativeAdData(
       headline: headline,
@@ -947,9 +942,9 @@ mixin _$NativeAd {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)
         $default, {
     required TResult Function() loading,
@@ -971,9 +966,9 @@ mixin _$NativeAd {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)?
         $default, {
     TResult Function()? loading,
@@ -1032,10 +1027,8 @@ abstract class $NativeAdDataCopyWith<$Res> {
       bool? isCustomMuteThisAdEnabled,
       AdChoicesInfo? adChoicesInfo,
       NativeAdMediaContent? mediaContent,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
-          List<NativeAdImage> images,
-      @JsonKey(defaultValue: const <String>[])
-          List<String> muteThisAdReasons});
+      @JsonKey(defaultValue: <NativeAdImage>[]) List<NativeAdImage> images,
+      @JsonKey(defaultValue: <String>[]) List<String> muteThisAdReasons});
 
   $NativeAdImageCopyWith<$Res>? get icon;
   $AdChoicesInfoCopyWith<$Res>? get adChoicesInfo;
@@ -1163,9 +1156,8 @@ class _$NativeAdDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NativeAdData extends NativeAdData {
   _$NativeAdData(
       {required this.headline,
@@ -1180,14 +1172,14 @@ class _$NativeAdData extends NativeAdData {
       this.isCustomMuteThisAdEnabled,
       this.adChoicesInfo,
       this.mediaContent,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
+      @JsonKey(defaultValue: <NativeAdImage>[])
           this.images = const <NativeAdImage>[],
-      @JsonKey(defaultValue: const <String>[])
+      @JsonKey(defaultValue: <String>[])
           this.muteThisAdReasons = const <String>[]})
       : super._();
 
   factory _$NativeAdData.fromJson(Map<String, dynamic> json) =>
-      _$_$NativeAdDataFromJson(json);
+      _$$NativeAdDataFromJson(json);
 
   @override
   final String headline;
@@ -1214,10 +1206,10 @@ class _$NativeAdData extends NativeAdData {
   @override
   final NativeAdMediaContent? mediaContent;
   @override
-  @JsonKey(defaultValue: const <NativeAdImage>[])
+  @JsonKey(defaultValue: <NativeAdImage>[])
   final List<NativeAdImage> images;
   @override
-  @JsonKey(defaultValue: const <String>[])
+  @JsonKey(defaultValue: <String>[])
   final List<String> muteThisAdReasons;
 
   @override
@@ -1311,9 +1303,9 @@ class _$NativeAdData extends NativeAdData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)
         $default, {
     required TResult Function() loading,
@@ -1352,9 +1344,9 @@ class _$NativeAdData extends NativeAdData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)?
         $default, {
     TResult Function()? loading,
@@ -1407,28 +1399,27 @@ class _$NativeAdData extends NativeAdData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$NativeAdDataToJson(this)..['runtimeType'] = 'default';
+    return _$$NativeAdDataToJson(this)..['runtimeType'] = 'default';
   }
 }
 
 abstract class NativeAdData extends NativeAd {
   factory NativeAdData(
-      {required String headline,
-      required String body,
-      NativeAdImage? icon,
-      String? callToAction,
-      String? advertiser,
-      String? price,
-      String? store,
-      double? starRating,
-      bool? isCustomClickGestureEnabled,
-      bool? isCustomMuteThisAdEnabled,
-      AdChoicesInfo? adChoicesInfo,
-      NativeAdMediaContent? mediaContent,
-      @JsonKey(defaultValue: const <NativeAdImage>[])
-          List<NativeAdImage> images,
-      @JsonKey(defaultValue: const <String>[])
-          List<String> muteThisAdReasons}) = _$NativeAdData;
+          {required String headline,
+          required String body,
+          NativeAdImage? icon,
+          String? callToAction,
+          String? advertiser,
+          String? price,
+          String? store,
+          double? starRating,
+          bool? isCustomClickGestureEnabled,
+          bool? isCustomMuteThisAdEnabled,
+          AdChoicesInfo? adChoicesInfo,
+          NativeAdMediaContent? mediaContent,
+          @JsonKey(defaultValue: <NativeAdImage>[]) List<NativeAdImage> images,
+          @JsonKey(defaultValue: <String>[]) List<String> muteThisAdReasons}) =
+      _$NativeAdData;
   NativeAdData._() : super._();
 
   factory NativeAdData.fromJson(Map<String, dynamic> json) =
@@ -1446,9 +1437,9 @@ abstract class NativeAdData extends NativeAd {
   bool? get isCustomMuteThisAdEnabled => throw _privateConstructorUsedError;
   AdChoicesInfo? get adChoicesInfo => throw _privateConstructorUsedError;
   NativeAdMediaContent? get mediaContent => throw _privateConstructorUsedError;
-  @JsonKey(defaultValue: const <NativeAdImage>[])
+  @JsonKey(defaultValue: <NativeAdImage>[])
   List<NativeAdImage> get images => throw _privateConstructorUsedError;
-  @JsonKey(defaultValue: const <String>[])
+  @JsonKey(defaultValue: <String>[])
   List<String> get muteThisAdReasons => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NativeAdDataCopyWith<NativeAdData> get copyWith =>
@@ -1474,14 +1465,13 @@ class _$NativeAdLoadingDataCopyWithImpl<$Res>
   NativeAdLoadingData get _value => super._value as NativeAdLoadingData;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NativeAdLoadingData extends NativeAdLoadingData {
   _$NativeAdLoadingData() : super._();
 
   factory _$NativeAdLoadingData.fromJson(Map<String, dynamic> json) =>
-      _$_$NativeAdLoadingDataFromJson(json);
+      _$$NativeAdLoadingDataFromJson(json);
 
   @override
   String toString() {
@@ -1512,9 +1502,9 @@ class _$NativeAdLoadingData extends NativeAdLoadingData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)
         $default, {
     required TResult Function() loading,
@@ -1539,9 +1529,9 @@ class _$NativeAdLoadingData extends NativeAdLoadingData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)?
         $default, {
     TResult Function()? loading,
@@ -1580,7 +1570,7 @@ class _$NativeAdLoadingData extends NativeAdLoadingData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$NativeAdLoadingDataToJson(this)..['runtimeType'] = 'loading';
+    return _$$NativeAdLoadingDataToJson(this)..['runtimeType'] = 'loading';
   }
 }
 
@@ -1623,14 +1613,13 @@ class _$NativeAdErrorDataCopyWithImpl<$Res> extends _$NativeAdCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NativeAdErrorData extends NativeAdErrorData {
   _$NativeAdErrorData({required this.message}) : super._();
 
   factory _$NativeAdErrorData.fromJson(Map<String, dynamic> json) =>
-      _$_$NativeAdErrorDataFromJson(json);
+      _$$NativeAdErrorDataFromJson(json);
 
   @override
   final String message;
@@ -1673,9 +1662,9 @@ class _$NativeAdErrorData extends NativeAdErrorData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)
         $default, {
     required TResult Function() loading,
@@ -1700,9 +1689,9 @@ class _$NativeAdErrorData extends NativeAdErrorData {
             bool? isCustomMuteThisAdEnabled,
             AdChoicesInfo? adChoicesInfo,
             NativeAdMediaContent? mediaContent,
-            @JsonKey(defaultValue: const <NativeAdImage>[])
+            @JsonKey(defaultValue: <NativeAdImage>[])
                 List<NativeAdImage> images,
-            @JsonKey(defaultValue: const <String>[])
+            @JsonKey(defaultValue: <String>[])
                 List<String> muteThisAdReasons)?
         $default, {
     TResult Function()? loading,
@@ -1741,7 +1730,7 @@ class _$NativeAdErrorData extends NativeAdErrorData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$NativeAdErrorDataToJson(this)..['runtimeType'] = 'error';
+    return _$$NativeAdErrorDataToJson(this)..['runtimeType'] = 'error';
   }
 }
 

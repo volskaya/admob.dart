@@ -2,12 +2,8 @@ package dev.volskaya.admob
 
 import android.app.Activity
 import android.os.Build
-import android.util.Log
 import androidx.annotation.NonNull
 import com.google.android.gms.ads.*
-import dev.volskaya.admob.app_open.AppOpenAdControllerManager
-import dev.volskaya.admob.banner.*
-import dev.volskaya.admob.interstitial.InterstitialAdControllerManager
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.BinaryMessenger
@@ -17,9 +13,6 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
 import dev.volskaya.admob.native.*
-import dev.volskaya.admob.rewarded.RewardedAdControllerManager
-import com.google.android.ump.ConsentForm
-import com.google.android.ump.ConsentInformation
 import dev.volskaya.admob.consent.ConsentCoordinator
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -41,7 +34,6 @@ class AdmobPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
         consentCoordinatorChannel = MethodChannel(messenger, "consentCoordinator")
         consentCoordinatorEventChannel = EventChannel(messenger, "consentCoordinator.state")
 
-        binding.platformViewRegistry.registerViewFactory("banner_admob", BannerAdViewFactory())
         binding.platformViewRegistry.registerViewFactory("nativeAdVideoMedia", NativeAdMediaViewFactory())
     }
 
@@ -95,50 +87,6 @@ class AdmobPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
                 val options = call.argument<String>("options")!!
                 NativeAdmobController.create(id, messenger, activity, nativeAdLoaders[options]!!)
                 result.success(null)
-            }
-            // Banner Ads Controller.
-            "initBannerAdController" -> {
-                BannerAdControllerManager.createController( call.argument<String>("id")!!, messenger, activity)
-                result.success(null)
-            }
-            "disposeBannerAdController" -> {
-                BannerAdControllerManager.removeController(call.argument<String>("id")!!)
-                result.success(null)
-            }
-            // Interstitial.
-            "initInterstitialAd" -> {
-                InterstitialAdControllerManager.createController(
-                        call.argument<String>("id")!!,
-                        messenger,
-                        activity)
-                result.success(null)
-            }
-            "disposeInterstitialAd" -> {
-                InterstitialAdControllerManager.removeController(call.argument<String>("id")!!)
-                result.success(null)
-            }
-            // Rewarded.
-            "initRewardedAd" -> {
-                RewardedAdControllerManager.createController(
-                        call.argument<String>("id")!!,
-                        messenger,
-                        activity)
-                result.success(null)
-            }
-            "disposeRewardedAd" -> {
-                RewardedAdControllerManager.removeController(call.argument<String>("id")!!)
-                result.success(null)
-            }
-            // App Open.
-            "initAppOpenAd" -> {
-                AppOpenAdControllerManager.createController(
-                        call.argument<String>("id")!!,
-                        messenger,
-                        activity
-                )
-            }
-            "disposeAppOpenAd" -> {
-                AppOpenAdControllerManager.removeController(call.argument<String>("id")!!)
             }
             // General Controller.
             "isTestDevice" -> result.success(AdRequest.Builder().build().isTestDevice(activity))

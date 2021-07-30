@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'consent_coordinator.dart';
 
@@ -23,11 +23,9 @@ class _$ConsentCoordinatorStateTearOff {
 
   _ConsentCoordinatorState call(
       {ConsentStatus status = ConsentStatus.unknown,
-      ConsentType type = ConsentType.unknown,
       bool isContentFormAvailable = false}) {
     return _ConsentCoordinatorState(
       status: status,
-      type: type,
       isContentFormAvailable: isContentFormAvailable,
     );
   }
@@ -43,7 +41,6 @@ const $ConsentCoordinatorState = _$ConsentCoordinatorStateTearOff();
 /// @nodoc
 mixin _$ConsentCoordinatorState {
   ConsentStatus get status => throw _privateConstructorUsedError;
-  ConsentType get type => throw _privateConstructorUsedError;
   bool get isContentFormAvailable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,8 +54,7 @@ abstract class $ConsentCoordinatorStateCopyWith<$Res> {
   factory $ConsentCoordinatorStateCopyWith(ConsentCoordinatorState value,
           $Res Function(ConsentCoordinatorState) then) =
       _$ConsentCoordinatorStateCopyWithImpl<$Res>;
-  $Res call(
-      {ConsentStatus status, ConsentType type, bool isContentFormAvailable});
+  $Res call({ConsentStatus status, bool isContentFormAvailable});
 }
 
 /// @nodoc
@@ -73,7 +69,6 @@ class _$ConsentCoordinatorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? type = freezed,
     Object? isContentFormAvailable = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,10 +76,6 @@ class _$ConsentCoordinatorStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ConsentStatus,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ConsentType,
       isContentFormAvailable: isContentFormAvailable == freezed
           ? _value.isContentFormAvailable
           : isContentFormAvailable // ignore: cast_nullable_to_non_nullable
@@ -100,8 +91,7 @@ abstract class _$ConsentCoordinatorStateCopyWith<$Res>
           $Res Function(_ConsentCoordinatorState) then) =
       __$ConsentCoordinatorStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {ConsentStatus status, ConsentType type, bool isContentFormAvailable});
+  $Res call({ConsentStatus status, bool isContentFormAvailable});
 }
 
 /// @nodoc
@@ -119,7 +109,6 @@ class __$ConsentCoordinatorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
-    Object? type = freezed,
     Object? isContentFormAvailable = freezed,
   }) {
     return _then(_ConsentCoordinatorState(
@@ -127,10 +116,6 @@ class __$ConsentCoordinatorStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ConsentStatus,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ConsentType,
       isContentFormAvailable: isContentFormAvailable == freezed
           ? _value.isContentFormAvailable
           : isContentFormAvailable // ignore: cast_nullable_to_non_nullable
@@ -139,31 +124,26 @@ class __$ConsentCoordinatorStateCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ConsentCoordinatorState implements _ConsentCoordinatorState {
   const _$_ConsentCoordinatorState(
       {this.status = ConsentStatus.unknown,
-      this.type = ConsentType.unknown,
       this.isContentFormAvailable = false});
 
   factory _$_ConsentCoordinatorState.fromJson(Map<String, dynamic> json) =>
-      _$_$_ConsentCoordinatorStateFromJson(json);
+      _$$_ConsentCoordinatorStateFromJson(json);
 
   @JsonKey(defaultValue: ConsentStatus.unknown)
   @override
   final ConsentStatus status;
-  @JsonKey(defaultValue: ConsentType.unknown)
-  @override
-  final ConsentType type;
   @JsonKey(defaultValue: false)
   @override
   final bool isContentFormAvailable;
 
   @override
   String toString() {
-    return 'ConsentCoordinatorState(status: $status, type: $type, isContentFormAvailable: $isContentFormAvailable)';
+    return 'ConsentCoordinatorState(status: $status, isContentFormAvailable: $isContentFormAvailable)';
   }
 
   @override
@@ -172,8 +152,6 @@ class _$_ConsentCoordinatorState implements _ConsentCoordinatorState {
         (other is _ConsentCoordinatorState &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.isContentFormAvailable, isContentFormAvailable) ||
                 const DeepCollectionEquality().equals(
                     other.isContentFormAvailable, isContentFormAvailable)));
@@ -183,7 +161,6 @@ class _$_ConsentCoordinatorState implements _ConsentCoordinatorState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(isContentFormAvailable);
 
   @JsonKey(ignore: true)
@@ -194,14 +171,13 @@ class _$_ConsentCoordinatorState implements _ConsentCoordinatorState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ConsentCoordinatorStateToJson(this);
+    return _$$_ConsentCoordinatorStateToJson(this);
   }
 }
 
 abstract class _ConsentCoordinatorState implements ConsentCoordinatorState {
   const factory _ConsentCoordinatorState(
       {ConsentStatus status,
-      ConsentType type,
       bool isContentFormAvailable}) = _$_ConsentCoordinatorState;
 
   factory _ConsentCoordinatorState.fromJson(Map<String, dynamic> json) =
@@ -209,8 +185,6 @@ abstract class _ConsentCoordinatorState implements ConsentCoordinatorState {
 
   @override
   ConsentStatus get status => throw _privateConstructorUsedError;
-  @override
-  ConsentType get type => throw _privateConstructorUsedError;
   @override
   bool get isContentFormAvailable => throw _privateConstructorUsedError;
   @override

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'options.dart';
 
@@ -106,14 +106,13 @@ class __$VideoOptionsCopyWithImpl<$Res> extends _$VideoOptionsCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_VideoOptions implements _VideoOptions {
   const _$_VideoOptions({this.startMuted = true});
 
   factory _$_VideoOptions.fromJson(Map<String, dynamic> json) =>
-      _$_$_VideoOptionsFromJson(json);
+      _$$_VideoOptionsFromJson(json);
 
   @JsonKey(defaultValue: true)
   @override
@@ -144,7 +143,7 @@ class _$_VideoOptions implements _VideoOptions {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_VideoOptionsToJson(this);
+    return _$$_VideoOptionsToJson(this);
   }
 }
 
@@ -385,9 +384,8 @@ class __$NativeAdOptionsCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_NativeAdOptions implements _NativeAdOptions {
   const _$_NativeAdOptions(
       {this.key = NativeAdOptions.defaultKey,
@@ -400,7 +398,7 @@ class _$_NativeAdOptions implements _NativeAdOptions {
       this.videoOptions});
 
   factory _$_NativeAdOptions.fromJson(Map<String, dynamic> json) =>
-      _$_$_NativeAdOptionsFromJson(json);
+      _$$_NativeAdOptionsFromJson(json);
 
   @JsonKey(defaultValue: NativeAdOptions.defaultKey)
   @override
@@ -482,7 +480,7 @@ class _$_NativeAdOptions implements _NativeAdOptions {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NativeAdOptionsToJson(this);
+    return _$$_NativeAdOptionsToJson(this);
   }
 }
 

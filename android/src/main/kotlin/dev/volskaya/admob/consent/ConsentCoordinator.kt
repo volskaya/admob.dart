@@ -8,7 +8,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 class ConsentCoordinator(
-        val activity: Activity,
+        private val activity: Activity,
         channel: MethodChannel,
         eventChannel: EventChannel,
         underAgeOfConsent: Boolean = false,
@@ -47,7 +47,6 @@ class ConsentCoordinator(
     private fun notifyConsentUpdate() {
         sink?.success(hashMapOf<String, Any?>(
                 "status" to consentInformation.consentStatus,
-                "type" to consentInformation.consentType,
                 "isContentFormAvailable" to consentInformation.isConsentFormAvailable
         ))
     }
