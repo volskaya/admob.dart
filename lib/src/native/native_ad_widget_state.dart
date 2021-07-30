@@ -75,6 +75,7 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
 
   @override @mustCallSuper
   void dispose() {
+    // If the controller was never attached to, it will be folded to a queue.
     storage?.dispose();
     super.dispose();
   }

@@ -14,16 +14,7 @@ import 'controller/native_ad.dart';
 /// Child widget builder of [NativeAd].
 typedef NativeAdChildBuilder = Widget Function(BuildContext context, NativeAd nativeAd);
 
-class _ChanceStorage extends RefreshStorageItem {
-  _ChanceStorage(this.truthy);
-  final bool truthy;
-}
-
-/// Uses `NativeAdView` on android and `GADNativeAd` on iOS
-///
-/// Useful links:
-///   - https://developers.google.com/admob/ios/native/start
-///   - https://developers.google.com/admob/android/native/start
+/// Builder of [NativeAd] objects.
 class NativeAdBuilder extends StatefulObserverWidget {
   /// Creates [NativeAdBuilder].
   const NativeAdBuilder({
@@ -36,9 +27,6 @@ class NativeAdBuilder extends StatefulObserverWidget {
   /// Convenience [math.Random] to use for chance ads.
   static final random = math.Random();
 
-  /// The "crit" rate for [checkChance] to use, when deciding whether to show an ad based on chance.
-  static double defaultRate = 0.4;
-
   /// Reactive builder of the ad. The `platformView` will be null, when the ad is not loaded.
   final NativeAdChildBuilder builder;
 
@@ -48,39 +36,9 @@ class NativeAdBuilder extends StatefulObserverWidget {
   /// The amount of [NativeAdController] to keep preloaded, after this controller is used.
   final int preloadCount;
 
-  /// Checks whether to show an ad based on chance.
-  static bool checkChance([double? rate]) => random.nextDouble() < (rate ?? defaultRate);
-
   /// Checks whether the [NativeAdController] for this identifier is already in the page storage.
   static bool hasController(BuildContext context, String identifier, {RefreshStorageState? storage}) =>
       RefreshStorage.contains(context, identifier, storage: storage);
-
-  /// Checks whether the [NativeAdController] for this identifier is already in
-  /// the page storage or the [checkChance] returns true for this call.
-  static bool checkChanceFor(BuildContext context, String identifier, [double? rate]) =>
-      hasController(context, identifier) || checkChance(rate);
-
-  static bool checkChanceForPage(
-    BuildContext context,
-    String identifier, {
-    double? rate,
-    RefreshStorageState? storage,
-  }) {
-    // Check if this ad has already been made.
-    if (hasController(context, identifier, storage: storage)) return true;
-
-    final key = '${identifier}_native_ad_chance_check';
-    final entry = RefreshStorage.write<_ChanceStorage>(
-      context: context,
-      identifier: key,
-      builder: () => _ChanceStorage(checkChance(rate)),
-      storage: storage,
-    );
-
-    final truthy = entry.value!.truthy;
-    entry.dispose();
-    return truthy;
-  }
 
   /// Get the lists child count factoring in ads.
   static int childCount(int length, int n, {int offset = 0, bool enabled = true}) {
@@ -88,11 +46,11 @@ class NativeAdBuilder extends StatefulObserverWidget {
     if (!enabled) return length;
     final wrappedOffset = -offset % (n + 1);
     final offsetLength = wrappedOffset == n || (offset < length && length < n && wrappedOffset > length) ? 1 : 0;
-    return length + (length / n).floor() + offsetLength;
+    return length + length ~/ n + offsetLength;
   }
 
   /// Get the index of an original list item factoring in ads.
-  static int childIndex(int i, int n) => i - ((i + 1) / n).floor();
+  static int childIndex(int i, int n) => i - (i + 1) ~/ n;
 
   /// Return true, if this `i` should belong to an ad item. Mimics the calculation
   /// in [NativeAdBuilder.childBuilder].
@@ -119,7 +77,7 @@ class NativeAdBuilder extends StatefulObserverWidget {
     final pageLength = n + 1;
     final wrappedOffset = -offset % pageLength;
     final position = i + 1 + wrappedOffset;
-    final adIndex = (position / pageLength).floor();
+    final adIndex = position ~/ pageLength;
     return (position % pageLength) == 0 ? adBuilder(adIndex - 1) : childBuilder(i - adIndex);
   }
 
