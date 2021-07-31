@@ -22,6 +22,7 @@ class NativeAdGhostView {
 
     fun mount(activity: Activity, nativeAd: NativeAd) {
         if (!mounted) throw Error("This ghost view should not be mounted again")
+
         AsyncLayoutInflater(activity).inflate(
                 R.layout.background_native_ad,
                 activity.window.decorView.findViewById(android.R.id.content)
@@ -50,12 +51,13 @@ class NativeAdGhostView {
         if (removeOnDispose) {
             view?.let {
                 (it.parent as ViewGroup).removeView(it)
+                view?.apply { destroy() }
                 view = null
             }
         }
     }
 
     fun click(): Boolean {
-         return (view?.callToActionView as? Button)?.callOnClick() ?: false
+        return (view?.callToActionView as? Button)?.callOnClick() ?: false
     }
 }

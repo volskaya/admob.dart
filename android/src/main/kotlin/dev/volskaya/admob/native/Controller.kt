@@ -29,20 +29,20 @@ class NativeAdmobController(
         }
 
         fun hydrateFirstController(key: String, nativeAd: NativeAd?): Boolean {
-            Log.d(null, "Attempting to hydrate first available controller")
+            Log.d(null, "Attempting to hydrate first available controller (out of ${controllers.size})")
 
             for (controller in controllers.values) {
                 if (controller.loader.key == key && !controller.hydrated) {
                     // Hydrate returns false, if the controller didn't end using the ad.
                     // In that case continue on to the next controller, if any.
                     if (controller.hydrate(nativeAd)) {
-                        Log.d(null, "Hydrating controller ${controller.id} of $key")
+                        Log.d(null, "Hydrating controller ${controller.id} of $key (out of ${controllers.size})")
                         return true
                     }
                 }
             }
 
-            Log.d(null, "Didn't find a controller of $key to hydrate")
+            Log.d(null, "Didn't find a controller of $key to hydrate (out of ${controllers.size})")
             return false // Add was consumed and should be removed from the NativeAdLoader's pool.
         }
     }

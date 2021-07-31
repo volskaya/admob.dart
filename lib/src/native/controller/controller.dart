@@ -120,6 +120,7 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   @o NativeAdVideoState videoState = const NativeAdVideoState();
   @o List<String> muteThisAdReasons = const <String>[];
 
+  /// True when the [loadTime] is older than 1 hour.
   bool considerThisOld() => loadTime != null && nativeAd.maybeMap((_) => true, orElse: () => false)
       ? DateTime.now().difference(loadTime!) > const Duration(hours: 1)
       : false; // Hasn't even been built yet.
@@ -130,7 +131,9 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
     switch (call.method) {
       // Ad cases.
       case 'onAdChanged':
-        nativeAd = NativeAd.fromJson(Map<String, dynamic>.from(call.arguments as Map));
+        nativeAd = call.arguments != null && call.arguments is Map
+            ? NativeAd.fromJson(Map<String, dynamic>.from(call.arguments as Map))
+            : NativeAd.error(message: 'not-filled'); // If the arguments are null, the ad didn't fill.
         break;
       case 'onAdMuted':
         muteThisAdReasons = List<String>.from(call.arguments as List);
@@ -140,6 +143,9 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
       case 'onVideoStart':
         videoState = videoState.copyWith.call(lifecycle: NativeAdVideoLifecycle.started);
         break;
+      case 'onVideoEnd':
+        videoState = videoState.copyWith.call(lifecycle: NativeAdVideoLifecycle.ended);
+        break;
       case 'onVideoPlay':
         videoState = videoState.copyWith.call(playback: NativeAdVideoPlaybackState.playing);
         break;
@@ -148,9 +154,6 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
         break;
       case 'onVideoMute':
         videoState = videoState.copyWith.call(muted: call.arguments as bool);
-        break;
-      case 'onVideoEnd':
-        videoState = videoState.copyWith.call(lifecycle: NativeAdVideoLifecycle.ended);
         break;
     }
   }
@@ -169,6 +172,16 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
 
   Future<void> _hydrate() async {
     if (channel == null) return;
+
+    // If the `nativeAd` is still loading after 15 sec, have set it to an error.
+    Future.delayed(
+      const Duration(seconds: 15),
+      () => nativeAd.maybeMap(
+        (_) {},
+        loading: (_) => nativeAd = NativeAd.error(message: 'hydrate-timed-out'),
+        orElse: () {},
+      ),
+    );
 
     try {
       await channel!.invokeMethod('hydrate');

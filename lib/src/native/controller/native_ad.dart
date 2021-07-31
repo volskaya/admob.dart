@@ -49,7 +49,7 @@ class NativeAdMediaContent with _$NativeAdMediaContent {
 class AdChoicesInfo with _$AdChoicesInfo {
   factory AdChoicesInfo({
     String? text,
-    @JsonKey(defaultValue: <NativeAdImage>[]) @Default(<NativeAdImage>[]) List<NativeAdImage> images,
+    @JsonKey() @Default(<NativeAdImage>[]) List<NativeAdImage> images,
   }) = _AdChoicesInfo;
 
   AdChoicesInfo._();
@@ -74,8 +74,8 @@ class NativeAd with _$NativeAd {
     bool? isCustomMuteThisAdEnabled,
     AdChoicesInfo? adChoicesInfo,
     NativeAdMediaContent? mediaContent,
-    @JsonKey(defaultValue: <NativeAdImage>[]) @Default(<NativeAdImage>[]) List<NativeAdImage> images,
-    @JsonKey(defaultValue: <String>[]) @Default(<String>[]) List<String> muteThisAdReasons,
+    @JsonKey() @Default(<NativeAdImage>[]) List<NativeAdImage> images,
+    @JsonKey() @Default(<String>[]) List<String> muteThisAdReasons,
   }) = NativeAdData;
 
   NativeAd._();
