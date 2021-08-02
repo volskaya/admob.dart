@@ -45,7 +45,7 @@ class NativeAdBuilder extends StatefulObserverWidget {
     assert(offset >= 0 && offset <= n);
     if (!enabled) return length;
     final wrappedOffset = -offset % (n + 1);
-    final offsetLength = wrappedOffset == n || (offset < length && length < n && wrappedOffset > length) ? 1 : 0;
+    final offsetLength = wrappedOffset == n || (offset <= length && length < n && wrappedOffset > length) ? 1 : 0;
     return length + length ~/ n + offsetLength;
   }
 
