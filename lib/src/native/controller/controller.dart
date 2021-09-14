@@ -195,7 +195,7 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   Future load() async {
     assert(MobileAds.instance.isInitialized);
     await init();
-    await (_hydrateMemoizer ??= Memoizer(_hydrate)).future;
+    await (_hydrateMemoizer ??= Memoizer(future: _hydrate)).future;
     await asyncWhen((_) => nativeAd.maybeMap((_) => true, loading: (_) => false, orElse: () => true));
     return nativeAd;
   }

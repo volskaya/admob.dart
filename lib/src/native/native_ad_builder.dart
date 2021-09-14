@@ -37,49 +37,8 @@ class NativeAdBuilder extends StatefulObserverWidget {
   final int preloadCount;
 
   /// Checks whether the [NativeAdController] for this identifier is already in the page storage.
-  static bool hasController(BuildContext context, String identifier, {RefreshStorageState? storage}) =>
+  static bool hasController(BuildContext context, String identifier, {RefreshStoragePod? storage}) =>
       RefreshStorage.contains(context, identifier, storage: storage);
-
-  /// Get the lists child count factoring in ads.
-  static int childCount(int length, int n, {int offset = 0, bool enabled = true}) {
-    assert(offset >= 0 && offset <= n);
-    if (!enabled) return length;
-    final wrappedOffset = -offset % (n + 1);
-    final offsetLength = wrappedOffset == n || (offset <= length && length < n && wrappedOffset > length) ? 1 : 0;
-    return length + length ~/ n + offsetLength;
-  }
-
-  /// Get the index of an original list item factoring in ads.
-  static int childIndex(int i, int n) => i - (i + 1) ~/ n;
-
-  /// Return true, if this `i` should belong to an ad item. Mimics the calculation
-  /// in [NativeAdBuilder.childBuilder].
-  static bool isAdPosition(int i, int n, [int offset = 0]) {
-    assert(offset >= 0 && offset <= n);
-    final pageLength = n + 1;
-    final wrappedOffset = -offset % pageLength;
-    final position = i + 1 + wrappedOffset;
-    return (position % pageLength) == 0;
-  }
-
-  /// Child builder that shows ads every `n` items.
-  static Widget childBuilder(
-    int i,
-    int n, {
-    required Widget Function(int index) adBuilder,
-    required Widget Function(int index) childBuilder,
-    int offset = 0,
-    bool enabled = true,
-  }) {
-    assert(offset >= 0 && offset <= n);
-    if (!enabled) return childBuilder(i);
-
-    final pageLength = n + 1;
-    final wrappedOffset = -offset % pageLength;
-    final position = i + 1 + wrappedOffset;
-    final adIndex = position ~/ pageLength;
-    return (position % pageLength) == 0 ? adBuilder(adIndex - 1) : childBuilder(i - adIndex);
-  }
 
   static bool _isPreloadingControllers = false;
 
