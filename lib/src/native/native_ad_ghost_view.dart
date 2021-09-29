@@ -77,17 +77,15 @@ class _Element extends ProxyElement {
     }
   }
 
-
   /// When the current route is not active, the view is not mounted.
   Future _maybeMountView([NativeAdController? controller]) async {
     await lock.acquire();
 
     try {
       if (_mounted && _modalRoute?.isCurrent == true && _mountedController == null && controller != null) {
-        await Future.wait([
-          if (widget.awaitRoute) AwaitRoute.of(this),
+        await Future.wait<void>([
+          if (widget.awaitRoute) AwaitRoute.waitFor(_modalRoute),
           if (widget.delay > Duration.zero) Future<void>.delayed(widget.delay),
-          if (widget.awaitScrollable) Scrollable.awaitIdle(this),
         ]);
 
         // Make sure, after awaiting all the futures above, the ascending scrollable is still not scrolling.

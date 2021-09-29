@@ -63,6 +63,8 @@ class NativeAdController extends _NativeAdController with _$NativeAdController {
     NativeAdController Function()? orElse,
     bool Function(NativeAdController)? where,
   }) {
+    if (!MobileAds.instance.isInitialized) return null;
+
     final queue = _neverUsedControllers[options];
     final throwAways = Queue<NativeAdController>();
 
@@ -94,6 +96,7 @@ class NativeAdController extends _NativeAdController with _$NativeAdController {
 
   /// Fold a controller, if it never got used. It shouldn't be disposed.
   static void fold(NativeAdController controller) {
+    assert(MobileAds.instance.isInitialized);
     assert(!controller.hasBeenAttachedTo());
     assert(!controller.disposed);
     (_neverUsedControllers[controller.optionsKey] ??= Queue<NativeAdController>()).add(controller);
@@ -193,7 +196,8 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   /// Will try to hydrate the controller one time. This callback doesn't wait till an
   /// ad is received.
   Future load() async {
-    assert(MobileAds.instance.isInitialized);
+    if (!MobileAds.instance.isInitialized) return;
+
     await init();
     await (_hydrateMemoizer ??= Memoizer(future: _hydrate)).future;
     await asyncWhen((_) => nativeAd.maybeMap((_) => true, loading: (_) => false, orElse: () => true));
@@ -204,7 +208,7 @@ abstract class _NativeAdController extends AdMethodChannel<NativeAdEvent> with A
   /// where you can later reuse it with [NativeAdController.firstReusable].
   @override
   Future dispose() {
-    assert(!disposed, 'Redundant dispose');
+    assert(!disposed || !MobileAds.instance.isInitialized, 'Redundant dispose');
 
     if (channel != null) {
       if (!hasBeenAttachedTo() && !considerThisOld()) {

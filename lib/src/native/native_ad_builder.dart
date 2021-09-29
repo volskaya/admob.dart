@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:admob/src/mobile_ads.dart';
 import 'package:await_route/await_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -46,13 +47,14 @@ class NativeAdBuilder extends StatefulObserverWidget {
   ///
   /// [NativeAdBuilder] can call this with scroll awareness, if you pass the IDs to the widget.
   static Future preloadControllers(int count, [String options = NativeAdOptions.defaultKey]) async {
-    if (_isPreloadingControllers) return;
+    if (_isPreloadingControllers || !MobileAds.instance.isInitialized) return;
 
     final currentCount = NativeAdController.getFoldedCount(options: options);
     final necessaryCount = count - currentCount;
     if (necessaryCount <= 0) return;
 
     _isPreloadingControllers = true;
+
     try {
       final futures = List<NativeAdController>.generate(
         necessaryCount,
@@ -76,6 +78,8 @@ class NativeAdBuilder extends StatefulObserverWidget {
 
 class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependencies<NativeAdBuilder> {
   late final NativeAdController _controller;
+  late final DisposableBuildContext _disposableBuildContext;
+  ModalRoute? _route;
   bool _hadAttachedToTheController = false;
 
   Future _preloadControllers() => NativeAdBuilder.preloadControllers(widget.preloadCount, _controller.optionsKey);
@@ -86,16 +90,21 @@ class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependenc
     if (!mounted) {
       return;
     } else {
-      if (!_isControllerReady()) await AwaitRoute.of(context);
+      if (!_isControllerReady() && mounted && _route != null) {
+        await AwaitRoute.waitFor(_route);
+      }
+
       if (!mounted) return;
 
       // Repeatedly check if the controller is ready.
       final isReady = _isControllerReady();
 
-      if (!isReady && Scrollable.recommendDeferredLoadingForContext(context)) {
+      if (!isReady &&
+          _disposableBuildContext.context != null &&
+          Scrollable.recommendDeferredLoadingForContext(_disposableBuildContext.context!)) {
         WidgetsBinding.instance!.addPostFrameCallback(_deferredLoad);
       } else {
-        _controller.attach(this);
+        _controller.attach(hashCode);
         _hadAttachedToTheController = true;
         if (!isReady) await _controller.load();
       }
@@ -103,13 +112,21 @@ class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependenc
   }
 
   Future _deferredIdleLoad() async {
-    final route = await AwaitRoute.of(context);
-    await Scrollable.awaitIdle(context);
-    if (mounted && route?.isCurrent == true) await _preloadControllers();
+    if (!MobileAds.instance.isInitialized) return;
+    if (_route != null) await AwaitRoute.waitFor(_route);
+    if (_disposableBuildContext.context != null) await Scrollable.awaitIdle(_disposableBuildContext.context!);
+    if (mounted && _route?.isCurrent == true) await _preloadControllers();
+  }
+
+  @override
+  void didChangeDependencies() {
+    _route = ModalRoute.of(context);
+    super.didChangeDependencies();
   }
 
   @override
   void initDependencies() {
+    _disposableBuildContext = DisposableBuildContext(this);
     _controller = widget.controller ?? NativeAdController.reuseOrCreate();
     _deferredLoad();
     if (widget.preloadCount > 0) _deferredIdleLoad();
@@ -123,7 +140,8 @@ class _NativeAdBuilderState extends State<NativeAdBuilder> with InitialDependenc
 
   @override
   void dispose() {
-    if (_hadAttachedToTheController) _controller.detach(this);
+    _disposableBuildContext.dispose();
+    if (_hadAttachedToTheController) _controller.detach(hashCode);
     if (widget.controller == null) _controller.dispose();
     super.dispose();
   }

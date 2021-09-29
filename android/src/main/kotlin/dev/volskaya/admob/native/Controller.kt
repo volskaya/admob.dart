@@ -205,9 +205,11 @@ fun Drawable.toBitmapByteArray(): ByteArray {
     return byteArray
 }
 
-fun NativeAd.Image.toFlutterMap(drawBitmap: Boolean = false): Map<*, *> {
+fun NativeAd.Image.toFlutterMap(drawBitmap: Boolean = false): Map<*, *>? {
+    if (this.uri == null) return null;
+
     return hashMapOf(
-            "uri" to this.uri.toString(),
+            "uri" to this.uri!!.toString(),
             "scale" to this.scale,
             "drawable" to if (drawBitmap) (this.drawable?.let {
                 // Flutter units don't have density applied, but native android does.
@@ -216,7 +218,7 @@ fun NativeAd.Image.toFlutterMap(drawBitmap: Boolean = false): Map<*, *> {
                 hashMapOf<String, Any?>(
                         "width" to it.intrinsicWidth / density,
                         "height" to it.intrinsicWidth / density,
-                        "bitmap" to  it.toBitmapByteArray()
+                        "bitmap" to it.toBitmapByteArray()
                 )
             }) else null
     )
@@ -233,20 +235,19 @@ fun NativeAd.toFlutterMap(): Map<*, *> {
             "callToAction" to this.callToAction,
             "starRating" to this.starRating?.toDouble(),
             "icon" to this.icon?.toFlutterMap(),
-            "images" to this.images?.map { image -> image.toFlutterMap() },
+            "images" to this.images.map { image -> image.toFlutterMap() }.filter { image -> image != null},
             "isCustomClickGestureEnabled" to this.isCustomClickGestureEnabled,
             "isCustomMuteThisAdEnabled" to this.isCustomMuteThisAdEnabled,
             "muteThisAdReasons" to this.muteThisAdReasons?.map { it.description },
-            "mediaContent" to hashMapOf(
-                    "aspectRatio" to this.mediaContent.aspectRatio.toDouble(),
-                    "hasVideoContent" to this.mediaContent.hasVideoContent(),
-                    "duration" to this.mediaContent.duration.toDouble()
+            "mediaContent" to if (this.mediaContent != null) hashMapOf(
+                    "aspectRatio" to this.mediaContent!!.aspectRatio.toDouble(),
+                    "hasVideoContent" to this.mediaContent!!.hasVideoContent(),
+                    "duration" to this.mediaContent!!.duration.toDouble()
 //                    "mainImage" to this.mediaContent.mainImage?.toBitmapByteArray(),
-            ),
+            ) else null,
             "adChoicesInfo" to hashMapOf(
                     "text" to this.adChoicesInfo?.text?.toString(),
                     "images" to this.adChoicesInfo?.images?.map { image -> image.toFlutterMap() }
             )
     )
 }
-

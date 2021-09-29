@@ -206,6 +206,8 @@ abstract class AdMethodChannel<T> implements _AdMethodChannelImpl {
 
   @protected @mustCallSuper
   Future init() {
+    if (!MobileAds.instance.isInitialized) return Future.sync(() => null);
+
     channel ??= MethodChannel(id)..setMethodCallHandler(_handleMethodCall);
     return (initMemoizer ??= Memoizer(
       future: () => MobileAds.instance.pluginChannel.invokeMethod(
