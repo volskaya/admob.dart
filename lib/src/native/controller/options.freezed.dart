@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'options.dart';
 
@@ -8,6 +8,10 @@ part of 'options.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 VideoOptions _$VideoOptionsFromJson(Map<String, dynamic> json) {
   return _VideoOptions.fromJson(json);
 }
@@ -16,29 +20,28 @@ VideoOptions _$VideoOptionsFromJson(Map<String, dynamic> json) {
 class _$VideoOptionsTearOff {
   const _$VideoOptionsTearOff();
 
-// ignore: unused_element
   _VideoOptions call({bool startMuted = true}) {
     return _VideoOptions(
       startMuted: startMuted,
     );
   }
 
-// ignore: unused_element
   VideoOptions fromJson(Map<String, Object> json) {
     return VideoOptions.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $VideoOptions = _$VideoOptionsTearOff();
 
 /// @nodoc
 mixin _$VideoOptions {
-  bool get startMuted;
+  bool get startMuted => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $VideoOptionsCopyWith<VideoOptions> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $VideoOptionsCopyWith<VideoOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -59,11 +62,13 @@ class _$VideoOptionsCopyWithImpl<$Res> implements $VideoOptionsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object startMuted = freezed,
+    Object? startMuted = freezed,
   }) {
     return _then(_value.copyWith(
-      startMuted:
-          startMuted == freezed ? _value.startMuted : startMuted as bool,
+      startMuted: startMuted == freezed
+          ? _value.startMuted
+          : startMuted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -90,11 +95,13 @@ class __$VideoOptionsCopyWithImpl<$Res> extends _$VideoOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object startMuted = freezed,
+    Object? startMuted = freezed,
   }) {
     return _then(_VideoOptions(
-      startMuted:
-          startMuted == freezed ? _value.startMuted : startMuted as bool,
+      startMuted: startMuted == freezed
+          ? _value.startMuted
+          : startMuted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,7 +110,7 @@ class __$VideoOptionsCopyWithImpl<$Res> extends _$VideoOptionsCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_VideoOptions implements _VideoOptions {
-  const _$_VideoOptions({this.startMuted = true}) : assert(startMuted != null);
+  const _$_VideoOptions({this.startMuted = true});
 
   factory _$_VideoOptions.fromJson(Map<String, dynamic> json) =>
       _$_$_VideoOptionsFromJson(json);
@@ -130,6 +137,7 @@ class _$_VideoOptions implements _VideoOptions {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(startMuted);
 
+  @JsonKey(ignore: true)
   @override
   _$VideoOptionsCopyWith<_VideoOptions> get copyWith =>
       __$VideoOptionsCopyWithImpl<_VideoOptions>(this, _$identity);
@@ -147,9 +155,11 @@ abstract class _VideoOptions implements VideoOptions {
       _$_VideoOptions.fromJson;
 
   @override
-  bool get startMuted;
+  bool get startMuted => throw _privateConstructorUsedError;
   @override
-  _$VideoOptionsCopyWith<_VideoOptions> get copyWith;
+  @JsonKey(ignore: true)
+  _$VideoOptionsCopyWith<_VideoOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NativeAdOptions _$NativeAdOptionsFromJson(Map<String, dynamic> json) {
@@ -160,7 +170,6 @@ NativeAdOptions _$NativeAdOptionsFromJson(Map<String, dynamic> json) {
 class _$NativeAdOptionsTearOff {
   const _$NativeAdOptionsTearOff();
 
-// ignore: unused_element
   _NativeAdOptions call(
       {String key = NativeAdOptions.defaultKey,
       bool showVideoContent = true,
@@ -169,7 +178,7 @@ class _$NativeAdOptionsTearOff {
       bool returnUrlsForImageAssets = true,
       AdChoicesPlacement adChoicesPlacement = AdChoicesPlacement.topRight,
       AdMediaAspectRatio mediaAspectRatio = AdMediaAspectRatio.landscape,
-      VideoOptions videoOptions}) {
+      VideoOptions? videoOptions}) {
     return _NativeAdOptions(
       key: key,
       showVideoContent: showVideoContent,
@@ -182,30 +191,32 @@ class _$NativeAdOptionsTearOff {
     );
   }
 
-// ignore: unused_element
   NativeAdOptions fromJson(Map<String, Object> json) {
     return NativeAdOptions.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NativeAdOptions = _$NativeAdOptionsTearOff();
 
 /// @nodoc
 mixin _$NativeAdOptions {
-  String get key;
-  bool get showVideoContent; // This is not an admob specific field.
-  bool get requestCustomMuteThisAd;
-  bool get requestMultipleImages;
-  bool
-      get returnUrlsForImageAssets; // No point of preparing the native drawables.
-  AdChoicesPlacement get adChoicesPlacement;
-  AdMediaAspectRatio get mediaAspectRatio;
-  VideoOptions get videoOptions;
+  String get key => throw _privateConstructorUsedError;
+  bool get showVideoContent =>
+      throw _privateConstructorUsedError; // This is not an admob specific field.
+  bool get requestCustomMuteThisAd => throw _privateConstructorUsedError;
+  bool get requestMultipleImages => throw _privateConstructorUsedError;
+  bool get returnUrlsForImageAssets =>
+      throw _privateConstructorUsedError; // No point of preparing the native drawables.
+  AdChoicesPlacement get adChoicesPlacement =>
+      throw _privateConstructorUsedError;
+  AdMediaAspectRatio get mediaAspectRatio => throw _privateConstructorUsedError;
+  VideoOptions? get videoOptions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NativeAdOptionsCopyWith<NativeAdOptions> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NativeAdOptionsCopyWith<NativeAdOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -221,9 +232,9 @@ abstract class $NativeAdOptionsCopyWith<$Res> {
       bool returnUrlsForImageAssets,
       AdChoicesPlacement adChoicesPlacement,
       AdMediaAspectRatio mediaAspectRatio,
-      VideoOptions videoOptions});
+      VideoOptions? videoOptions});
 
-  $VideoOptionsCopyWith<$Res> get videoOptions;
+  $VideoOptionsCopyWith<$Res>? get videoOptions;
 }
 
 /// @nodoc
@@ -237,47 +248,58 @@ class _$NativeAdOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object key = freezed,
-    Object showVideoContent = freezed,
-    Object requestCustomMuteThisAd = freezed,
-    Object requestMultipleImages = freezed,
-    Object returnUrlsForImageAssets = freezed,
-    Object adChoicesPlacement = freezed,
-    Object mediaAspectRatio = freezed,
-    Object videoOptions = freezed,
+    Object? key = freezed,
+    Object? showVideoContent = freezed,
+    Object? requestCustomMuteThisAd = freezed,
+    Object? requestMultipleImages = freezed,
+    Object? returnUrlsForImageAssets = freezed,
+    Object? adChoicesPlacement = freezed,
+    Object? mediaAspectRatio = freezed,
+    Object? videoOptions = freezed,
   }) {
     return _then(_value.copyWith(
-      key: key == freezed ? _value.key : key as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       showVideoContent: showVideoContent == freezed
           ? _value.showVideoContent
-          : showVideoContent as bool,
+          : showVideoContent // ignore: cast_nullable_to_non_nullable
+              as bool,
       requestCustomMuteThisAd: requestCustomMuteThisAd == freezed
           ? _value.requestCustomMuteThisAd
-          : requestCustomMuteThisAd as bool,
+          : requestCustomMuteThisAd // ignore: cast_nullable_to_non_nullable
+              as bool,
       requestMultipleImages: requestMultipleImages == freezed
           ? _value.requestMultipleImages
-          : requestMultipleImages as bool,
+          : requestMultipleImages // ignore: cast_nullable_to_non_nullable
+              as bool,
       returnUrlsForImageAssets: returnUrlsForImageAssets == freezed
           ? _value.returnUrlsForImageAssets
-          : returnUrlsForImageAssets as bool,
+          : returnUrlsForImageAssets // ignore: cast_nullable_to_non_nullable
+              as bool,
       adChoicesPlacement: adChoicesPlacement == freezed
           ? _value.adChoicesPlacement
-          : adChoicesPlacement as AdChoicesPlacement,
+          : adChoicesPlacement // ignore: cast_nullable_to_non_nullable
+              as AdChoicesPlacement,
       mediaAspectRatio: mediaAspectRatio == freezed
           ? _value.mediaAspectRatio
-          : mediaAspectRatio as AdMediaAspectRatio,
+          : mediaAspectRatio // ignore: cast_nullable_to_non_nullable
+              as AdMediaAspectRatio,
       videoOptions: videoOptions == freezed
           ? _value.videoOptions
-          : videoOptions as VideoOptions,
+          : videoOptions // ignore: cast_nullable_to_non_nullable
+              as VideoOptions?,
     ));
   }
 
   @override
-  $VideoOptionsCopyWith<$Res> get videoOptions {
+  $VideoOptionsCopyWith<$Res>? get videoOptions {
     if (_value.videoOptions == null) {
       return null;
     }
-    return $VideoOptionsCopyWith<$Res>(_value.videoOptions, (value) {
+
+    return $VideoOptionsCopyWith<$Res>(_value.videoOptions!, (value) {
       return _then(_value.copyWith(videoOptions: value));
     });
   }
@@ -298,10 +320,10 @@ abstract class _$NativeAdOptionsCopyWith<$Res>
       bool returnUrlsForImageAssets,
       AdChoicesPlacement adChoicesPlacement,
       AdMediaAspectRatio mediaAspectRatio,
-      VideoOptions videoOptions});
+      VideoOptions? videoOptions});
 
   @override
-  $VideoOptionsCopyWith<$Res> get videoOptions;
+  $VideoOptionsCopyWith<$Res>? get videoOptions;
 }
 
 /// @nodoc
@@ -317,38 +339,48 @@ class __$NativeAdOptionsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object key = freezed,
-    Object showVideoContent = freezed,
-    Object requestCustomMuteThisAd = freezed,
-    Object requestMultipleImages = freezed,
-    Object returnUrlsForImageAssets = freezed,
-    Object adChoicesPlacement = freezed,
-    Object mediaAspectRatio = freezed,
-    Object videoOptions = freezed,
+    Object? key = freezed,
+    Object? showVideoContent = freezed,
+    Object? requestCustomMuteThisAd = freezed,
+    Object? requestMultipleImages = freezed,
+    Object? returnUrlsForImageAssets = freezed,
+    Object? adChoicesPlacement = freezed,
+    Object? mediaAspectRatio = freezed,
+    Object? videoOptions = freezed,
   }) {
     return _then(_NativeAdOptions(
-      key: key == freezed ? _value.key : key as String,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       showVideoContent: showVideoContent == freezed
           ? _value.showVideoContent
-          : showVideoContent as bool,
+          : showVideoContent // ignore: cast_nullable_to_non_nullable
+              as bool,
       requestCustomMuteThisAd: requestCustomMuteThisAd == freezed
           ? _value.requestCustomMuteThisAd
-          : requestCustomMuteThisAd as bool,
+          : requestCustomMuteThisAd // ignore: cast_nullable_to_non_nullable
+              as bool,
       requestMultipleImages: requestMultipleImages == freezed
           ? _value.requestMultipleImages
-          : requestMultipleImages as bool,
+          : requestMultipleImages // ignore: cast_nullable_to_non_nullable
+              as bool,
       returnUrlsForImageAssets: returnUrlsForImageAssets == freezed
           ? _value.returnUrlsForImageAssets
-          : returnUrlsForImageAssets as bool,
+          : returnUrlsForImageAssets // ignore: cast_nullable_to_non_nullable
+              as bool,
       adChoicesPlacement: adChoicesPlacement == freezed
           ? _value.adChoicesPlacement
-          : adChoicesPlacement as AdChoicesPlacement,
+          : adChoicesPlacement // ignore: cast_nullable_to_non_nullable
+              as AdChoicesPlacement,
       mediaAspectRatio: mediaAspectRatio == freezed
           ? _value.mediaAspectRatio
-          : mediaAspectRatio as AdMediaAspectRatio,
+          : mediaAspectRatio // ignore: cast_nullable_to_non_nullable
+              as AdMediaAspectRatio,
       videoOptions: videoOptions == freezed
           ? _value.videoOptions
-          : videoOptions as VideoOptions,
+          : videoOptions // ignore: cast_nullable_to_non_nullable
+              as VideoOptions?,
     ));
   }
 }
@@ -365,14 +397,7 @@ class _$_NativeAdOptions implements _NativeAdOptions {
       this.returnUrlsForImageAssets = true,
       this.adChoicesPlacement = AdChoicesPlacement.topRight,
       this.mediaAspectRatio = AdMediaAspectRatio.landscape,
-      this.videoOptions})
-      : assert(key != null),
-        assert(showVideoContent != null),
-        assert(requestCustomMuteThisAd != null),
-        assert(requestMultipleImages != null),
-        assert(returnUrlsForImageAssets != null),
-        assert(adChoicesPlacement != null),
-        assert(mediaAspectRatio != null);
+      this.videoOptions});
 
   factory _$_NativeAdOptions.fromJson(Map<String, dynamic> json) =>
       _$_$_NativeAdOptionsFromJson(json);
@@ -399,7 +424,7 @@ class _$_NativeAdOptions implements _NativeAdOptions {
   @override
   final AdMediaAspectRatio mediaAspectRatio;
   @override
-  final VideoOptions videoOptions;
+  final VideoOptions? videoOptions;
 
   @override
   String toString() {
@@ -450,6 +475,7 @@ class _$_NativeAdOptions implements _NativeAdOptions {
       const DeepCollectionEquality().hash(mediaAspectRatio) ^
       const DeepCollectionEquality().hash(videoOptions);
 
+  @JsonKey(ignore: true)
   @override
   _$NativeAdOptionsCopyWith<_NativeAdOptions> get copyWith =>
       __$NativeAdOptionsCopyWithImpl<_NativeAdOptions>(this, _$identity);
@@ -469,27 +495,30 @@ abstract class _NativeAdOptions implements NativeAdOptions {
       bool returnUrlsForImageAssets,
       AdChoicesPlacement adChoicesPlacement,
       AdMediaAspectRatio mediaAspectRatio,
-      VideoOptions videoOptions}) = _$_NativeAdOptions;
+      VideoOptions? videoOptions}) = _$_NativeAdOptions;
 
   factory _NativeAdOptions.fromJson(Map<String, dynamic> json) =
       _$_NativeAdOptions.fromJson;
 
   @override
-  String get key;
+  String get key => throw _privateConstructorUsedError;
   @override
-  bool get showVideoContent;
+  bool get showVideoContent => throw _privateConstructorUsedError;
   @override // This is not an admob specific field.
-  bool get requestCustomMuteThisAd;
+  bool get requestCustomMuteThisAd => throw _privateConstructorUsedError;
   @override
-  bool get requestMultipleImages;
+  bool get requestMultipleImages => throw _privateConstructorUsedError;
   @override
-  bool get returnUrlsForImageAssets;
+  bool get returnUrlsForImageAssets => throw _privateConstructorUsedError;
   @override // No point of preparing the native drawables.
-  AdChoicesPlacement get adChoicesPlacement;
+  AdChoicesPlacement get adChoicesPlacement =>
+      throw _privateConstructorUsedError;
   @override
-  AdMediaAspectRatio get mediaAspectRatio;
+  AdMediaAspectRatio get mediaAspectRatio => throw _privateConstructorUsedError;
   @override
-  VideoOptions get videoOptions;
+  VideoOptions? get videoOptions => throw _privateConstructorUsedError;
   @override
-  _$NativeAdOptionsCopyWith<_NativeAdOptions> get copyWith;
+  @JsonKey(ignore: true)
+  _$NativeAdOptionsCopyWith<_NativeAdOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }

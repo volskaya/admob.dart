@@ -6,27 +6,20 @@ part 'consent_coordinator.freezed.dart';
 part 'consent_coordinator.g.dart';
 
 enum ConsentStatus {
-  @JsonValue(0)
-  unknown,
-  @JsonValue(1)
-  notRequired,
-  @JsonValue(2)
-  required,
-  @JsonValue(3)
-  obtained,
+  @JsonValue(0) unknown,
+  @JsonValue(1) notRequired,
+  @JsonValue(2) required,
+  @JsonValue(3) obtained,
 }
 
 enum ConsentType {
-  @JsonValue(0)
-  unknown,
-  @JsonValue(1)
-  nonPersonalized,
-  @JsonValue(2)
-  personalized,
+  @JsonValue(0) unknown,
+  @JsonValue(1) nonPersonalized,
+  @JsonValue(2) personalized,
 }
 
 @freezed
-abstract class ConsentCoordinatorState with _$ConsentCoordinatorState {
+class ConsentCoordinatorState with _$ConsentCoordinatorState {
   const factory ConsentCoordinatorState({
     @Default(ConsentStatus.unknown) ConsentStatus status,
     @Default(ConsentType.unknown) ConsentType type,
@@ -55,9 +48,8 @@ abstract class _ConsentCoordinator with Store {
         return ConsentStatus.unknown;
       case StreamStatus.active:
       case StreamStatus.done:
-        return _stream.value.status;
+        return _stream.value?.status ?? ConsentStatus.unknown;
     }
-    throw UnimplementedError();
   }
 
   @computed
@@ -67,9 +59,8 @@ abstract class _ConsentCoordinator with Store {
         return ConsentType.unknown;
       case StreamStatus.active:
       case StreamStatus.done:
-        return _stream.value.type;
+        return _stream.value?.type ?? ConsentType.unknown;
     }
-    throw UnimplementedError();
   }
 
   @computed
@@ -79,15 +70,11 @@ abstract class _ConsentCoordinator with Store {
         return false;
       case StreamStatus.active:
       case StreamStatus.done:
-        return _stream.value.isContentFormAvailable;
+        return _stream.value?.isContentFormAvailable ?? false;
     }
-    throw UnimplementedError();
   }
 
-  Future showForm() async {
-    final wtf = await ConsentCoordinator.channel.invokeMethod('showForm');
-    print(wtf);
-  }
+  Future showForm() => ConsentCoordinator.channel.invokeMethod('showForm');
 
   Future reset() => ConsentCoordinator.channel.invokeMethod('reset');
 }

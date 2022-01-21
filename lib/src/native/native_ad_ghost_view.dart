@@ -7,10 +7,10 @@ import 'package:utils/utils.dart';
 /// their built, unless the ad has video media content.
 class NativeAdGhostView extends ProxyWidget {
   const NativeAdGhostView({
-    Key key,
-    @required this.controller,
-    @required this.nativeAd,
-    @required Widget child,
+    Key? key,
+    required this.controller,
+    required this.nativeAd,
+    required Widget child,
     this.showingVideoContent = true,
   }) : super(key: key, child: child);
 
@@ -34,7 +34,7 @@ class _Element extends ProxyElement {
   final lock = Mutex();
   bool _nativeViewMounted = false;
   bool _mounted = false;
-  ModalRoute _modalRoute;
+  ModalRoute? _modalRoute;
 
   /// Video ads build a native ad inside a platform view, so don't
   /// mount any background views. This is safe to call though, the
@@ -57,15 +57,15 @@ class _Element extends ProxyElement {
 
   /// When the current route is not active, the view is not mounted.
   void _maybeMountView() => lock.protect(() {
-        if (_modalRoute.isCurrent && _mounted && !_nativeViewMounted) {
+        if (_modalRoute?.isCurrent == true && _mounted && !_nativeViewMounted) {
           _mountView();
-        } else if ((!_modalRoute.isCurrent || !_mounted) && _nativeViewMounted) {
+        } else if ((_modalRoute?.isCurrent != true || !_mounted) && _nativeViewMounted) {
           _unmountView();
         }
       });
 
   @override
-  void mount(Element parent, dynamic newSlot) {
+  void mount(Element? parent, dynamic newSlot) {
     super.mount(parent, newSlot);
     _modalRoute = ModalRoute.of(this);
     _mounted = true;

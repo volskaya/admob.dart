@@ -5,7 +5,7 @@ import 'controller/controller.dart';
 
 class NativeAdWidgetStateStorage extends RefreshStorageItem {
   NativeAdWidgetStateStorage({String options = NativeAdOptions.defaultKey})
-      : controller = NativeAdController.reuseOrCreate(options: options ?? NativeAdOptions.defaultKey);
+      : controller = NativeAdController.reuseOrCreate(options: options);
 
   final NativeAdController controller;
 
@@ -19,15 +19,15 @@ class NativeAdWidgetStateStorage extends RefreshStorageItem {
 mixin NativeAdWidget on StatefulWidget {
   String get identifier;
   String get options => NativeAdOptions.defaultKey;
-  NativeAdController get controller;
+  NativeAdController? get controller;
 }
 
 /// State that persists a [NativeAdController] within the [RefreshStorage] as well as
 /// rebuilding it, when the controller is considered old on `initState` or app coming
 /// into the foreground.
 abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
-  RefreshStorageEntry<NativeAdWidgetStateStorage> storage;
-  NativeAdController get controller => widget.controller ?? storage?.value?.controller;
+  RefreshStorageEntry<NativeAdWidgetStateStorage>? storage;
+  NativeAdController? get controller => widget.controller ?? storage?.value?.controller;
 
   NativeAdWidgetStateStorage _buildStorage() => NativeAdWidgetStateStorage(options: widget.options);
 
@@ -40,23 +40,22 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
   void _checkOldController() {
     assert(widget.controller == null);
 
-    if (storage?.value?.controller?.considerThisOld() == true) {
-      storage.dispose();
+    if (storage?.value?.controller.considerThisOld() == true) {
+      storage!.dispose();
       RefreshStorage.destroy(context: context, identifier: widget.identifier);
 
       // This will build a fresh controller and fetch a new ad.
-      setState(
-        () => storage = RefreshStorage.write<NativeAdWidgetStateStorage>(
-          context: context,
-          identifier: widget.identifier,
-          builder: _buildStorage,
-        ),
+      storage = RefreshStorage.write<NativeAdWidgetStateStorage>(
+        context: context,
+        identifier: widget.identifier,
+        builder: _buildStorage,
       );
+
+      markNeedsBuild();
     }
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void initState() {
     if (widget.controller == null) {
       _createStorage(widget.identifier);
@@ -67,16 +66,14 @@ abstract class NativeAdWidgetState<T extends NativeAdWidget> extends State<T> {
     super.initState();
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void didUpdateWidget(covariant T oldWidget) {
     assert(oldWidget.controller?.id == widget.controller?.id);
     assert(oldWidget.identifier == widget.identifier);
     super.didUpdateWidget(oldWidget);
   }
 
-  @mustCallSuper
-  @override
+  @override @mustCallSuper
   void dispose() {
     storage?.dispose();
     super.dispose();

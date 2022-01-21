@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.gms:play-services-ads:19.7.0'
+    implementation 'com.google.android.gms:play-services-ads:19.8.0'
     implementation 'com.google.android.ump:user-messaging-platform:1.0.0'
+    implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
 }

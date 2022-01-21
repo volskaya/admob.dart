@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'utils.dart';
 
@@ -8,6 +8,10 @@ part of 'utils.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 AdError _$AdErrorFromJson(Map<String, dynamic> json) {
   return _AdError.fromJson(json);
 }
@@ -16,9 +20,8 @@ AdError _$AdErrorFromJson(Map<String, dynamic> json) {
 class _$AdErrorTearOff {
   const _$AdErrorTearOff();
 
-// ignore: unused_element
   _AdError call(
-      {@required int code, @required String message, @required String domain}) {
+      {required int code, required String message, required String domain}) {
     return _AdError(
       code: code,
       message: message,
@@ -26,14 +29,12 @@ class _$AdErrorTearOff {
     );
   }
 
-// ignore: unused_element
   AdError fromJson(Map<String, Object> json) {
     return AdError.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AdError = _$AdErrorTearOff();
 
 /// @nodoc
@@ -55,17 +56,18 @@ mixin _$AdError {
   ///
   /// Global error codes:
   /// - Internal error (Something happened internally; for instance, an invalid response was received from the ad server): 0
-  int get code;
+  int get code => throw _privateConstructorUsedError;
 
   /// Gets an error message. For example "Account not approved yet".
   /// See [this](https://support.google.com/admob/answer/9905175) for explanations of common errors.
-  String get message;
+  String get message => throw _privateConstructorUsedError;
 
   /// Gets the domain from which the error came.
-  String get domain;
+  String get domain => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $AdErrorCopyWith<AdError> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AdErrorCopyWith<AdError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -85,14 +87,23 @@ class _$AdErrorCopyWithImpl<$Res> implements $AdErrorCopyWith<$Res> {
 
   @override
   $Res call({
-    Object code = freezed,
-    Object message = freezed,
-    Object domain = freezed,
+    Object? code = freezed,
+    Object? message = freezed,
+    Object? domain = freezed,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed ? _value.code : code as int,
-      message: message == freezed ? _value.message : message as String,
-      domain: domain == freezed ? _value.domain : domain as String,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      domain: domain == freezed
+          ? _value.domain
+          : domain // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -116,14 +127,23 @@ class __$AdErrorCopyWithImpl<$Res> extends _$AdErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object code = freezed,
-    Object message = freezed,
-    Object domain = freezed,
+    Object? code = freezed,
+    Object? message = freezed,
+    Object? domain = freezed,
   }) {
     return _then(_AdError(
-      code: code == freezed ? _value.code : code as int,
-      message: message == freezed ? _value.message : message as String,
-      domain: domain == freezed ? _value.domain : domain as String,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      domain: domain == freezed
+          ? _value.domain
+          : domain // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -133,10 +153,7 @@ class __$AdErrorCopyWithImpl<$Res> extends _$AdErrorCopyWithImpl<$Res>
 /// @nodoc
 class _$_AdError with DiagnosticableTreeMixin implements _AdError {
   const _$_AdError(
-      {@required this.code, @required this.message, @required this.domain})
-      : assert(code != null),
-        assert(message != null),
-        assert(domain != null);
+      {required this.code, required this.message, required this.domain});
 
   factory _$_AdError.fromJson(Map<String, dynamic> json) =>
       _$_$_AdErrorFromJson(json);
@@ -206,6 +223,7 @@ class _$_AdError with DiagnosticableTreeMixin implements _AdError {
       const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(domain);
 
+  @JsonKey(ignore: true)
   @override
   _$AdErrorCopyWith<_AdError> get copyWith =>
       __$AdErrorCopyWithImpl<_AdError>(this, _$identity);
@@ -218,9 +236,9 @@ class _$_AdError with DiagnosticableTreeMixin implements _AdError {
 
 abstract class _AdError implements AdError {
   const factory _AdError(
-      {@required int code,
-      @required String message,
-      @required String domain}) = _$_AdError;
+      {required int code,
+      required String message,
+      required String domain}) = _$_AdError;
 
   factory _AdError.fromJson(Map<String, dynamic> json) = _$_AdError.fromJson;
 
@@ -243,16 +261,18 @@ abstract class _AdError implements AdError {
   ///
   /// Global error codes:
   /// - Internal error (Something happened internally; for instance, an invalid response was received from the ad server): 0
-  int get code;
+  int get code => throw _privateConstructorUsedError;
   @override
 
   /// Gets an error message. For example "Account not approved yet".
   /// See [this](https://support.google.com/admob/answer/9905175) for explanations of common errors.
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
 
   /// Gets the domain from which the error came.
-  String get domain;
+  String get domain => throw _privateConstructorUsedError;
   @override
-  _$AdErrorCopyWith<_AdError> get copyWith;
+  @JsonKey(ignore: true)
+  _$AdErrorCopyWith<_AdError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
